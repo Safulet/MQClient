@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Draft Stage</title>
+    <script id="data">
+        DrafterData = [
+  {
+    "protocols" : [
+
+    ],
+    "name" : "SecretKeys",
+    "accessControl" : "internal",
+    "id" : "D4C35F9BDDDAE0E809CAD3D56E2956254",
+    "isSwift" : true,
+    "type" : "class",
+    "methods" : {
+
+    },
+    "super" : ""
+  },
+  {
+    "id" : "D5E8549671FCB04929F25109EA4E163C9",
+    "protocols" : [
+      {
+        "name" : "CombineProtocol",
+        "id" : "D19617CFE5050FE76C7D8DE17FE96911A"
+      }
+    ],
+    "accessControl" : "public",
+    "isSwift" : true,
+    "methods" : {
+      "D8D21967686AA6A84844D4FDE01714624" : {
+        "static" : false,
+        "invokes" : [
+          {
+            "formatedName" : "connectMQTT()"
+          },
+          {
+            "formatedName" : "reconnectMQTT()"
+          },
+          {
+            "formatedName" : "reconnectFibonacci()"
+          }
+        ],
+        "params" : [
+          {
+            "sel" : "_",
+            "type" : "ReconnectPolicy",
+            "name" : "reconnectPolicy"
+          }
+        ],
+        "classId" : "D5E8549671FCB04929F25109EA4E163C9",
+        "accessControl" : "internal",
+        "id" : "D8D21967686AA6A84844D4FDE01714624",
+        "isSwift" : true,
+        "type" : "method",
+        "returnType" : "",
+        "name" : "reconnectIfNeeded"
+      },
+      "DD3C5D4EECFF87C6C2AD463AA6A29A24E" : {
+        "id" : "DD3C5D4EECFF87C6C2AD463AA6A29A24E",
+        "classId" : "D5E8549671FCB04929F25109EA4E163C9",
+        "params" : [
+          {
+            "sel" : "_",
+            "type" : "String",
+            "name" : "payload"
+          },
+          {
+            "sel" : "to",
+            "type" : "String",
+            "name" : "topic"
+          },
+          {
+            "name" : "onComplete",
+            "type" : "(Result<Void,Error>)->Void",
+            "sel" : "onComplete"
+          }
+        ],
+        "returnType" : "",
+        "invokes" : [
+          {
+            "formatedName" : "publish(_:, to:).whenComplete(_:)"
+          },
+          {
+            "formatedName" : "onComplete(_:)"
+          }
+        ],
+        "type" : "method",
+        "accessControl" : "internal",
+        "isSwift" : true,
+        "name" : "publish",
+        "static" : false
+      },
+      "D543CF9B853541E3C6C020D8D22BBDDF3" : {
+        "returnType" : "TLSConfiguration",
+        "static" : true,
+        "type" : "method",
+        "classId" : "D5E8549671FCB04929F25109EA4E163C9",
+        "accessControl" : "internal",
+        "id" : "D543CF9B853541E3C6C020D8D22BBDDF3",
+        "params" : [
+          {
+            "name" : "caCertificate",
+            "type" : "[UInt8]",
+            "sel" : "caCertificate"
+          },
+          {
+            "type" : "[UInt8]",
+            "sel" : "certificate",
+            "name" : "certificate"
+          },
+          {
+            "type" : "[UInt8]",
+            "sel" : "privateKey",
+            "name" : "privateKey"
+          },
+          {
+            "type" : "NIOSSLSerializationFormats",
+            "name" : "privateKeyFormat",
+            "sel" : "privateKeyFormat"
+          }
+        ],
+        "invokes" : [
+          {
+            "formatedName" : "fromPEMBytes(_:)"
+          },
+          {
+            "formatedName" : "NIOSSLPrivateKey(bytes:, format:)"
+          },
+          {
+            "formatedName" : "makeClientConfiguration()"
+          },
+          {
+            "formatedName" : "certificates(_:)"
+          },
+          {
+            "formatedName" : "certificate()"
+          },
+          {
+            "formatedName" : "privateKey(_:)"
+          }
+        ],
+        "isSwift" : true,
+        "name" : "buildTLSConfiguration"
+      },
+      "D0E25536A27E7444C0F5F2FF4B7C4DECD" : {
+        "id" : "D0E25536A27E7444C0F5F2FF4B7C4DECD",
+        "returnType" : "",
+        "params" : [
+          {
+            "name" : "endpoint",
+            "type" : "MQTTEndpoint",
+            "sel" : "endpoint"
+          },
+          {
+            "type" : "String",
+            "sel" : "clientID",
+            "name" : "clientID"
+          }
+        ],
+        "accessControl" : "internal",
+        "type" : "method",
+        "name" : "init",
+        "static" : false,
+        "invokes" : [
+          {
+            "classId" : "D5E8549671FCB04929F25109EA4E163C9",
+            "methodId" : "D2FE0285575141033C3E3DFB1D53CC6D5"
+          }
+        ],
+        "classId" : "D5E8549671FCB04929F25109EA4E163C9",
+        "isSwift" : true
+      },
+      "DD018C38AC5D27F7C1AE0C983DF055994" : {
+        "id" : "DD018C38AC5D27F7C1AE0C983DF055994",
+        "isSwift" : true,
+        "accessControl" : "internal",
+        "returnType" : "",
+        "name" : "init",
+        "params" : [
+          {
+            "type" : "MQTTClient",
+            "sel" : "client",
+            "name" : "client"
+          }
+        ],
+        "classId" : "D5E8549671FCB04929F25109EA4E163C9",
+        "type" : "method",
+        "invokes" : [
+          {
+            "formatedName" : "canImport(_:)"
+          },
+          {
+            "methodId" : "D6609C9E8C34F60498E6E0B5D863FCF4A",
+            "classId" : "D5E8549671FCB04929F25109EA4E163C9"
+          }
+        ],
+        "static" : false
+      },
+      "D6609C9E8C34F60498E6E0B5D863FCF4A" : {
+        "type" : "method",
+        "accessControl" : "internal",
+        "isSwift" : true,
+        "id" : "D6609C9E8C34F60498E6E0B5D863FCF4A",
+        "classId" : "D5E8549671FCB04929F25109EA4E163C9",
+        "name" : "bindSubscription",
+        "static" : false,
+        "returnType" : "",
+        "params" : [
+
+        ],
+        "invokes" : [
+          {
+            "formatedName" : "removeAll()"
+          },
+          {
+            "formatedName" : "store(in:)"
+          }
+        ]
+      },
+      "D2FE0285575141033C3E3DFB1D53CC6D5" : {
+        "isSwift" : true,
+        "id" : "D2FE0285575141033C3E3DFB1D53CC6D5",
+        "type" : "method",
+        "params" : [
+          {
+            "type" : "MQTTEndpoint",
+            "sel" : "with",
+            "name" : "endpoint"
+          },
+          {
+            "name" : "clientID",
+            "type" : "String",
+            "sel" : "clientID"
+          }
+        ],
+        "invokes" : [
+          {
+            "formatedName" : "MQTTClient(configuration:)"
+          },
+          {
+            "classId" : "D5E8549671FCB04929F25109EA4E163C9",
+            "methodId" : "D796473DDCEF441B7DCF2DA20EB0D42B5"
+          }
+        ],
+        "classId" : "D5E8549671FCB04929F25109EA4E163C9",
+        "static" : true,
+        "name" : "buildClient",
+        "accessControl" : "internal",
+        "returnType" : "MQTTClient"
+      },
+      "D84CB87DCC0F7E2E97905663C879FD804" : {
+        "type" : "method",
+        "id" : "D84CB87DCC0F7E2E97905663C879FD804",
+        "name" : "unsubscribe",
+        "invokes" : [
+          {
+            "classId" : "D5E8549671FCB04929F25109EA4E163C9",
+            "methodId" : "D84CB87DCC0F7E2E97905663C879FD804"
+          },
+          {
+            "formatedName" : "success(_:)"
+          },
+          {
+            "formatedName" : "promise(_:)"
+          },
+          {
+            "formatedName" : "failure(_:)"
+          }
+        ],
+        "params" : [
+          {
+            "type" : "String",
+            "sel" : "from",
+            "name" : "topic"
+          }
+        ],
+        "static" : false,
+        "returnType" : "Future",
+        "classId" : "D5E8549671FCB04929F25109EA4E163C9",
+        "isSwift" : true,
+        "accessControl" : "internal"
+      },
+      "D910036E3B43E9DF140690CA0D56C1CE6" : {
+        "invokes" : [
+          {
+            "formatedName" : "print(_:)"
+          },
+          {
+            "formatedName" : "asyncAfter(deadline:)"
+          },
+          {
+            "classId" : "D5E8549671FCB04929F25109EA4E163C9",
+            "methodId" : "D910036E3B43E9DF140690CA0D56C1CE6"
+          },
+          {
+            "classId" : "D5E8549671FCB04929F25109EA4E163C9",
+            "methodId" : "DE467B0445E787B055418BD71F28E7780"
+          },
+          {
+            "formatedName" : "now()"
+          },
+          {
+            "formatedName" : "seconds(_:)"
+          }
+        ],
+        "accessControl" : "private",
+        "isSwift" : true,
+        "id" : "D910036E3B43E9DF140690CA0D56C1CE6",
+        "static" : false,
+        "type" : "method",
+        "returnType" : "",
+        "name" : "reconnectFibonacci",
+        "classId" : "D5E8549671FCB04929F25109EA4E163C9",
+        "params" : [
+          {
+            "sel" : "_",
+            "name" : "index",
+            "type" : "Int"
+          }
+        ]
+      },
+      "D61584FFA10FC0B6B67A1D62C96F108EA" : {
+        "invokes" : [
+          {
+            "methodId" : "D543CF9B853541E3C6C020D8D22BBDDF3",
+            "classId" : "D5E8549671FCB04929F25109EA4E163C9"
+          }
+        ],
+        "returnType" : "TLSConfiguration",
+        "name" : "buildDemoTLSConfiguration",
+        "type" : "method",
+        "id" : "D61584FFA10FC0B6B67A1D62C96F108EA",
+        "accessControl" : "internal",
+        "static" : true,
+        "classId" : "D5E8549671FCB04929F25109EA4E163C9",
+        "isSwift" : true,
+        "params" : [
+          {
+            "type" : "MQTTEndpoint",
+            "name" : "endpoint",
+            "sel" : "_"
+          }
+        ]
+      },
+      "DE467B0445E787B055418BD71F28E7780" : {
+        "static" : false,
+        "classId" : "D5E8549671FCB04929F25109EA4E163C9",
+        "accessControl" : "internal",
+        "returnType" : "",
+        "name" : "connectIfNeeded",
+        "id" : "DE467B0445E787B055418BD71F28E7780",
+        "params" : [
+
+        ],
+        "invokes" : [
+          {
+            "formatedName" : "connectMQTT()"
+          }
+        ],
+        "isSwift" : true,
+        "type" : "method"
+      },
+      "D7F4E54B745AE0FC6656DCCC3A2B56B28" : {
+        "static" : false,
+        "params" : [
+          {
+            "name" : "client",
+            "type" : "MQTTClient",
+            "sel" : "client"
+          }
+        ],
+        "isSwift" : true,
+        "name" : "setup",
+        "invokes" : [
+
+        ],
+        "classId" : "D5E8549671FCB04929F25109EA4E163C9",
+        "type" : "method",
+        "accessControl" : "internal",
+        "id" : "D7F4E54B745AE0FC6656DCCC3A2B56B28",
+        "returnType" : ""
+      },
+      "D796473DDCEF441B7DCF2DA20EB0D42B5" : {
+        "type" : "method",
+        "classId" : "D5E8549671FCB04929F25109EA4E163C9",
+        "id" : "D796473DDCEF441B7DCF2DA20EB0D42B5",
+        "params" : [
+          {
+            "type" : "MQTTEndpoint",
+            "sel" : "endpoint",
+            "name" : "endpoint"
+          },
+          {
+            "name" : "clientID",
+            "sel" : "clientID",
+            "type" : "String"
+          }
+        ],
+        "accessControl" : "internal",
+        "name" : "buildMQTTConfiguration",
+        "returnType" : "MQTTConfiguration",
+        "invokes" : [
+          {
+            "formatedName" : "MQTTConfiguration(target:, tls:, protocolVersion:, clientId:)"
+          },
+          {
+            "formatedName" : "host(_:, port:)"
+          },
+          {
+            "methodId" : "D61584FFA10FC0B6B67A1D62C96F108EA",
+            "classId" : "D5E8549671FCB04929F25109EA4E163C9"
+          }
+        ],
+        "isSwift" : true,
+        "static" : true
+      },
+      "DB6FD23DAF7F0C86784FE26B4417FC054" : {
+        "invokes" : [
+          {
+            "formatedName" : "subscribe(to:).whenComplete(_:)"
+          },
+          {
+            "formatedName" : "matchesMqttTopicFilter(_:)"
+          },
+          {
+            "formatedName" : "eraseToAnyPublisher()"
+          },
+          {
+            "formatedName" : "promise(_:)"
+          },
+          {
+            "formatedName" : "failure(_:)"
+          }
+        ],
+        "isSwift" : true,
+        "returnType" : "Future",
+        "id" : "DB6FD23DAF7F0C86784FE26B4417FC054",
+        "static" : false,
+        "type" : "method",
+        "params" : [
+          {
+            "name" : "topic",
+            "sel" : "_",
+            "type" : "String"
+          }
+        ],
+        "accessControl" : "internal",
+        "classId" : "D5E8549671FCB04929F25109EA4E163C9",
+        "name" : "subscribe"
+      },
+      "DF6602D233448155506C5B998F593DC23" : {
+        "type" : "method",
+        "id" : "DF6602D233448155506C5B998F593DC23",
+        "invokes" : [
+
+        ],
+        "params" : [
+
+        ],
+        "classId" : "D5E8549671FCB04929F25109EA4E163C9",
+        "name" : "init",
+        "isSwift" : true,
+        "accessControl" : "internal",
+        "static" : false,
+        "returnType" : ""
+      },
+      "D4AE8F8578A3A6AC963AA6760E646A53F" : {
+        "accessControl" : "internal",
+        "returnType" : "",
+        "params" : [
+          {
+            "name" : "topic",
+            "type" : "String",
+            "sel" : "from"
+          },
+          {
+            "name" : "onComplete",
+            "type" : "(Result<MQTTManagerSingleUnsubscribeResponse,Error>)->Void",
+            "sel" : "onComplete"
+          }
+        ],
+        "invokes" : [
+          {
+            "formatedName" : "unsubscribe(from:).whenComplete(_:)"
+          },
+          {
+            "formatedName" : "onComplete(_:)"
+          }
+        ],
+        "classId" : "D5E8549671FCB04929F25109EA4E163C9",
+        "name" : "unsubscribe",
+        "id" : "D4AE8F8578A3A6AC963AA6760E646A53F",
+        "static" : false,
+        "type" : "method",
+        "isSwift" : true
+      },
+      "D0A21BFAF2582CD5BFD780158F25572C5" : {
+        "isSwift" : true,
+        "params" : [
+          {
+            "name" : "topics",
+            "sel" : "to",
+            "type" : "[String]"
+          }
+        ],
+        "invokes" : [
+          {
+            "formatedName" : "subscribe(to:).whenComplete(_:)"
+          },
+          {
+            "formatedName" : "success(_:)"
+          },
+          {
+            "formatedName" : "for(_:, _:)"
+          },
+          {
+            "formatedName" : "enumerated()"
+          },
+          {
+            "formatedName" : "matchesMqttTopicFilter(_:)"
+          },
+          {
+            "formatedName" : "eraseToAnyPublisher()"
+          },
+          {
+            "formatedName" : "append(_:)"
+          },
+          {
+            "formatedName" : "promise(_:)"
+          },
+          {
+            "formatedName" : "failure(_:)"
+          }
+        ],
+        "accessControl" : "internal",
+        "static" : false,
+        "id" : "D0A21BFAF2582CD5BFD780158F25572C5",
+        "name" : "subscribe",
+        "returnType" : "Future",
+        "classId" : "D5E8549671FCB04929F25109EA4E163C9",
+        "type" : "method"
+      },
+      "D2125D279640159A2319A414168873ADC" : {
+        "id" : "D2125D279640159A2319A414168873ADC",
+        "name" : "disconnect",
+        "invokes" : [
+          {
+            "formatedName" : "disconnectMQTT()"
+          }
+        ],
+        "isSwift" : true,
+        "returnType" : "",
+        "accessControl" : "internal",
+        "params" : [
+
+        ],
+        "static" : false,
+        "type" : "method",
+        "classId" : "D5E8549671FCB04929F25109EA4E163C9"
+      }
+    },
+    "super" : "",
+    "type" : "class",
+    "name" : "MQTTManager"
+  },
+  {
+    "protocols" : [
+
+    ],
+    "methods" : {
+
+    },
+    "isSwift" : true,
+    "super" : "PreviewProvider",
+    "name" : "ContentView_Previews",
+    "type" : "class",
+    "accessControl" : "internal",
+    "id" : "D9D8A1717B073BD9D5EBC4CDDC1D9E4D4"
+  },
+  {
+    "name" : "MQTTEndpoint",
+    "isSwift" : true,
+    "type" : "class",
+    "accessControl" : "internal",
+    "protocols" : [
+
+    ],
+    "id" : "D9A86ECDE704BBC4888EB79077C6862FC",
+    "methods" : {
+
+    },
+    "super" : ""
+  },
+  {
+    "accessControl" : "internal",
+    "type" : "class",
+    "super" : "App",
+    "isSwift" : true,
+    "methods" : {
+
+    },
+    "id" : "D5546A6CCC12FA4004A2D884AABC24411",
+    "name" : "mqtt_nio_demoApp",
+    "protocols" : [
+
+    ]
+  },
+  {
+    "accessControl" : "internal",
+    "type" : "class",
+    "name" : "MQTTCredentials",
+    "isSwift" : true,
+    "methods" : {
+
+    },
+    "id" : "D236CC01575C2B7871E765371B86492A1",
+    "protocols" : [
+
+    ],
+    "super" : ""
+  },
+  {
+    "super" : "View",
+    "accessControl" : "internal",
+    "methods" : {
+
+    },
+    "id" : "DC621B46EE90AE7CD8314AC68D6722729",
+    "isSwift" : true,
+    "protocols" : [
+
+    ],
+    "type" : "class",
+    "name" : "ContentView"
+  },
+  {
+    "id" : "D1A73FBD4F9884FF65C228B91C839ED8F",
+    "protocols" : [
+
+    ],
+    "methods" : {
+      "DFDFD018B4700A833EEAF5826334C9B29" : {
+        "id" : "DFDFD018B4700A833EEAF5826334C9B29",
+        "type" : "method",
+        "accessControl" : "internal",
+        "invokes" : [
+          {
+            "formatedName" : "append(_:)"
+          }
+        ],
+        "name" : "subscribeSucceed",
+        "isSwift" : true,
+        "static" : false,
+        "returnType" : "",
+        "classId" : "D1A73FBD4F9884FF65C228B91C839ED8F",
+        "params" : [
+          {
+            "sel" : "to",
+            "name" : "topic",
+            "type" : "String"
+          }
+        ]
+      },
+      "DEA468F919D802E1480602E57A02B377F" : {
+        "id" : "DEA468F919D802E1480602E57A02B377F",
+        "type" : "method",
+        "params" : [
+          {
+            "name" : "topic",
+            "type" : "String",
+            "sel" : "topic"
+          },
+          {
+            "type" : "String",
+            "sel" : "message",
+            "name" : "message"
+          }
+        ],
+        "returnType" : "",
+        "invokes" : [
+          {
+            "formatedName" : "append(_:)"
+          },
+          {
+            "formatedName" : "failure(_:)"
+          },
+          {
+            "formatedName" : "append(_:, error:)"
+          },
+          {
+            "formatedName" : "store(in:)"
+          }
+        ],
+        "accessControl" : "internal",
+        "classId" : "D1A73FBD4F9884FF65C228B91C839ED8F",
+        "static" : false,
+        "name" : "publishMessage",
+        "isSwift" : true
+      },
+      "DF39D6AA33FDDB06BBFE5A66D8942381B" : {
+        "id" : "DF39D6AA33FDDB06BBFE5A66D8942381B",
+        "isSwift" : true,
+        "params" : [
+
+        ],
+        "invokes" : [
+          {
+            "formatedName" : "disconnect()"
+          }
+        ],
+        "returnType" : "",
+        "accessControl" : "internal",
+        "type" : "method",
+        "classId" : "D1A73FBD4F9884FF65C228B91C839ED8F",
+        "static" : false,
+        "name" : "disconnectMqtt"
+      },
+      "D5B62888432A4D239952A5B9C6E274726" : {
+        "params" : [
+          {
+            "sel" : "from",
+            "type" : "String",
+            "name" : "topic"
+          }
+        ],
+        "type" : "method",
+        "accessControl" : "internal",
+        "returnType" : "",
+        "invokes" : [
+          {
+            "formatedName" : "append(_:)"
+          }
+        ],
+        "static" : false,
+        "isSwift" : true,
+        "classId" : "D1A73FBD4F9884FF65C228B91C839ED8F",
+        "name" : "unsubscribeSucceed",
+        "id" : "D5B62888432A4D239952A5B9C6E274726"
+      },
+      "D296530E00242CE707357A487551E7354" : {
+        "name" : "clearOutput",
+        "returnType" : "",
+        "static" : false,
+        "isSwift" : true,
+        "invokes" : [
+          {
+            "formatedName" : "removeAll()"
+          }
+        ],
+        "id" : "D296530E00242CE707357A487551E7354",
+        "accessControl" : "internal",
+        "classId" : "D1A73FBD4F9884FF65C228B91C839ED8F",
+        "type" : "method",
+        "params" : [
+
+        ]
+      },
+      "DFBC691D7314A5A5D3271E9A8A8895E49" : {
+        "isSwift" : true,
+        "accessControl" : "internal",
+        "params" : [
+          {
+            "name" : "topic",
+            "type" : "String",
+            "sel" : "from"
+          },
+          {
+            "name" : "error",
+            "type" : "Error",
+            "sel" : "error"
+          }
+        ],
+        "static" : false,
+        "invokes" : [
+          {
+            "formatedName" : "append(_:, error:)"
+          }
+        ],
+        "id" : "DFBC691D7314A5A5D3271E9A8A8895E49",
+        "classId" : "D1A73FBD4F9884FF65C228B91C839ED8F",
+        "type" : "method",
+        "name" : "unsubscribeFailed",
+        "returnType" : ""
+      },
+      "DA9921579AC6EAF05FA9DA1B5F959B3AB" : {
+        "isSwift" : true,
+        "name" : "didReceive",
+        "classId" : "D1A73FBD4F9884FF65C228B91C839ED8F",
+        "accessControl" : "internal",
+        "id" : "DA9921579AC6EAF05FA9DA1B5F959B3AB",
+        "static" : false,
+        "returnType" : "",
+        "params" : [
+          {
+            "name" : "message",
+            "type" : "MQTTManagerMessage",
+            "sel" : "message"
+          }
+        ],
+        "invokes" : [
+          {
+            "formatedName" : "append(_:)"
+          }
+        ],
+        "type" : "method"
+      },
+      "DA54A0F3B5FEF325CD0B0A83FDE0F2702" : {
+        "params" : [
+          {
+            "sel" : "to",
+            "name" : "topic",
+            "type" : "String"
+          },
+          {
+            "name" : "error",
+            "sel" : "error",
+            "type" : "Error"
+          }
+        ],
+        "static" : false,
+        "name" : "subscribeFailed",
+        "accessControl" : "internal",
+        "type" : "method",
+        "isSwift" : true,
+        "invokes" : [
+          {
+            "formatedName" : "append(_:, _:)"
+          }
+        ],
+        "classId" : "D1A73FBD4F9884FF65C228B91C839ED8F",
+        "returnType" : "",
+        "id" : "DA54A0F3B5FEF325CD0B0A83FDE0F2702"
+      },
+      "D10FFF4388E5A4E42F384F505F980BC6E" : {
+        "invokes" : [
+          {
+            "formatedName" : "setup(client:)"
+          },
+          {
+            "formatedName" : "print(_:)"
+          },
+          {
+            "classId" : "D1A73FBD4F9884FF65C228B91C839ED8F",
+            "methodId" : "D9B76CEE99C43A0BCEE93C0E8F02AFB8E"
+          },
+          {
+            "formatedName" : "buildClient(with:, clientID:)"
+          }
+        ],
+        "classId" : "D1A73FBD4F9884FF65C228B91C839ED8F",
+        "type" : "method",
+        "accessControl" : "internal",
+        "params" : [
+
+        ],
+        "id" : "D10FFF4388E5A4E42F384F505F980BC6E",
+        "returnType" : "",
+        "static" : false,
+        "name" : "init",
+        "isSwift" : true
+      },
+      "D3F723CAE973CDE5DA4A25F4C065395BA" : {
+        "accessControl" : "internal",
+        "isSwift" : true,
+        "id" : "D3F723CAE973CDE5DA4A25F4C065395BA",
+        "static" : false,
+        "classId" : "D1A73FBD4F9884FF65C228B91C839ED8F",
+        "name" : "connectMqtt",
+        "returnType" : "",
+        "params" : [
+
+        ],
+        "invokes" : [
+          {
+            "formatedName" : "reconnectIfNeeded(_:)"
+          }
+        ],
+        "type" : "method"
+      },
+      "D28739D23738D805A7A83682956EE1240" : {
+        "isSwift" : true,
+        "params" : [
+          {
+            "sel" : "topic",
+            "type" : "String",
+            "name" : "topic"
+          }
+        ],
+        "classId" : "D1A73FBD4F9884FF65C228B91C839ED8F",
+        "invokes" : [
+          {
+            "formatedName" : "unsubscribe(from:)"
+          }
+        ],
+        "static" : false,
+        "type" : "method",
+        "accessControl" : "internal",
+        "name" : "unsubscribeTopic",
+        "id" : "D28739D23738D805A7A83682956EE1240",
+        "returnType" : ""
+      },
+      "D1C567FDC2189DC01053D9AE9BEC04806" : {
+        "classId" : "D1A73FBD4F9884FF65C228B91C839ED8F",
+        "returnType" : "",
+        "params" : [
+          {
+            "type" : "String",
+            "name" : "topic",
+            "sel" : "topic"
+          }
+        ],
+        "type" : "method",
+        "isSwift" : true,
+        "name" : "subscribeTopic",
+        "id" : "D1C567FDC2189DC01053D9AE9BEC04806",
+        "accessControl" : "internal",
+        "invokes" : [
+          {
+            "formatedName" : "subscribe(to:)"
+          }
+        ],
+        "static" : false
+      },
+      "D9B76CEE99C43A0BCEE93C0E8F02AFB8E" : {
+        "name" : "bindingEvents",
+        "type" : "method",
+        "static" : false,
+        "accessControl" : "internal",
+        "classId" : "D1A73FBD4F9884FF65C228B91C839ED8F",
+        "isSwift" : true,
+        "returnType" : "",
+        "invokes" : [
+          {
+            "formatedName" : "append(_:)"
+          },
+          {
+            "formatedName" : "disconnected(_:)"
+          },
+          {
+            "formatedName" : "append(_:, _:)"
+          }
+        ],
+        "id" : "D9B76CEE99C43A0BCEE93C0E8F02AFB8E",
+        "params" : [
+
+        ]
+      }
+    },
+    "type" : "class",
+    "name" : "HomeView",
+    "isSwift" : true,
+    "accessControl" : "internal",
+    "super" : "View"
+  },
+  {
+    "accessControl" : "internal",
+    "name" : "MQTTTopicMessagePublisher",
+    "id" : "DE71E3DE1F1B4F5DC81903EBE42242205",
+    "protocols" : [
+
+    ],
+    "super" : "Publisher",
+    "methods" : {
+
+    },
+    "isSwift" : true,
+    "type" : "class"
+  },
+  {
+    "type" : "class",
+    "name" : "MQTTConnectionObserverToken",
+    "methods" : {
+      "DBBA12321C797D77746C950E2E8E12DBF" : {
+        "name" : "init",
+        "static" : false,
+        "id" : "DBBA12321C797D77746C950E2E8E12DBF",
+        "params" : [
+          {
+            "sel" : "connectionDidChange",
+            "name" : "connectionDidChange",
+            "type" : "NSObjectProtocol"
+          }
+        ],
+        "invokes" : [
+
+        ],
+        "accessControl" : "public",
+        "returnType" : "",
+        "isSwift" : true,
+        "type" : "method",
+        "classId" : "D43F3D9F4D65D32C0788164AAB05BB0DB"
+      }
+    },
+    "id" : "D43F3D9F4D65D32C0788164AAB05BB0DB",
+    "protocols" : [
+
+    ],
+    "super" : "",
+    "accessControl" : "public",
+    "isSwift" : true
+  },
+  {
+    "id" : "D903EDC804CA68CDA68D48B0D35895363",
+    "protocols" : [
+
+    ],
+    "accessControl" : "internal",
+    "type" : "class",
+    "super" : "PreviewProvider",
+    "methods" : {
+
+    },
+    "isSwift" : true,
+    "name" : "HomeView_Previews"
+  },
+  {
+    "protocols" : [
+
+    ],
+    "accessControl" : "internal",
+    "type" : "class",
+    "name" : "Secrets",
+    "methods" : {
+
+    },
+    "super" : "",
+    "isSwift" : true,
+    "id" : "DFFB85BFE93F1D2F1654A7048B87F0403"
+  },
+  {
+    "methods" : {
+
+    },
+    "id" : "D2B42DA75D33953AED94C863A97C4C8D6",
+    "name" : "MQTTConnectionObserverConstants",
+    "type" : "class",
+    "super" : "",
+    "accessControl" : "internal",
+    "protocols" : [
+
+    ],
+    "isSwift" : true
+  }
+]
+    </script>
+</head>
+<body>
+    <div id="app">
+        
+    </div>
+<script type="text/javascript" src="bundle.js"></script></body>
+</html>
