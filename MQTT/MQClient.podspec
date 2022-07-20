@@ -16,8 +16,8 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "MQClient"
-  spec.version      = "0.0.1"
-  spec.summary      = "A short description of MQClient."
+  spec.version      = "1.0.0"
+  spec.summary      = "An iOS native MQTT client bridge based on mqtt-nio."
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -27,7 +27,7 @@ Pod::Spec.new do |spec|
   spec.description  = <<-DESC
                    DESC
 
-  spec.homepage     = "http://EXAMPLE/MQClient"
+  spec.homepage     = "https://github.com/Safulet/MQClient.git"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -38,7 +38,7 @@ Pod::Spec.new do |spec|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  spec.license      = "MIT (example)"
+  spec.license      = "Apache 2.0"
   # spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -52,10 +52,9 @@ Pod::Spec.new do |spec|
   #  profile URL.
   #
 
-  spec.author             = { "Kevin" => "kevin.ma@binance.com" }
-  # Or just: spec.author    = "Kevin"
-  # spec.authors            = { "Kevin" => "kevin.ma@binance.com" }
-  # spec.social_media_url   = "https://twitter.com/Kevin"
+  spec.author             = { "Arther" => "songtao046@gmail.com" }
+  # Or just: spec.author    = "Arther"
+  # spec.authors            = { "Arther" => "songtao046@gmail.com" }
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -79,7 +78,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "http://EXAMPLE/MQClient.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/Safulet/MQClient.git", :tag => "#{spec.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
