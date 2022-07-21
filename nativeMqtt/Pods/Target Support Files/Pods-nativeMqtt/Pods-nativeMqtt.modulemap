@@ -1,6 +1,0 @@
-framework module Pods_nativeMqtt {
-  umbrella header "Pods-nativeMqtt-umbrella.h"
-
-  export *
-  module * { export * }
-}

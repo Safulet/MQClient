@@ -16,20 +16,22 @@
 		A849033027EC691C000B50D3 /* mqtt_nio_demoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A849032F27EC691C000B50D3 /* mqtt_nio_demoUITestsLaunchTests.swift */; };
 		A849034027EC6B36000B50D3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A849033F27EC6B36000B50D3 /* HomeView.swift */; };
 		A849034227EC6B61000B50D3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A849034127EC6B61000B50D3 /* HomeViewModel.swift */; };
-		A849034727EC7D77000B50D3 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A849034627EC7D77000B50D3 /* Secrets.swift */; };
-		C0876ED828395C5E008B57D6 /* MQTTEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0876ED728395C5E008B57D6 /* MQTTEndpoint.swift */; };
-		C09804BB283CC08300D4EB8B /* MQTTClient+MQTTClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09804BA283CC08300D4EB8B /* MQTTClient+MQTTClientProtocol.swift */; };
-		C09804BD283CC0B100D4EB8B /* MQTTClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09804BC283CC0B100D4EB8B /* MQTTClientProtocol.swift */; };
-		CE64B24D287B8FAC00EBA149 /* MQTTMDClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64B24C287B8FAC00EBA149 /* MQTTMDClient.swift */; };
-		CE95CF0228698BA600C85DF5 /* MQTTError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95CF0128698BA600C85DF5 /* MQTTError.swift */; };
-		CE95CF0628698BD800C85DF5 /* MQTTDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95CF0528698BD800C85DF5 /* MQTTDecoder.swift */; };
-		CE95CF0A2869955A00C85DF5 /* MQTTClientBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95CF092869955A00C85DF5 /* MQTTClientBuilder.swift */; };
-		CE95CF0C2869982600C85DF5 /* TLSConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95CF0B2869982600C85DF5 /* TLSConfigurationBuilder.swift */; };
-		CE95CF102869B0CF00C85DF5 /* MQTTLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95CF0F2869B0CF00C85DF5 /* MQTTLogger.swift */; };
-		CEAD3CAA286C598200300A68 /* MQTTSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAD3CA9286C598200300A68 /* MQTTSubscription.swift */; };
-		CEAD3CB2286D644500300A68 /* MQTTCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAD3CB1286D644500300A68 /* MQTTCredentials.swift */; };
-		CEAD3CB4286D647000300A68 /* MQTTNIO+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAD3CB3286D647000300A68 /* MQTTNIO+Extensions.swift */; };
-		CEAD3CB9286D662D00300A68 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAD3CB8286D662D00300A68 /* Tests.swift */; };
+		CE92CD492888F67A00EAFA95 /* MQTTDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE92CD342888F67A00EAFA95 /* MQTTDecoder.swift */; };
+		CE92CD4A2888F67A00EAFA95 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE92CD362888F67A00EAFA95 /* Tests.swift */; };
+		CE92CD4B2888F67A00EAFA95 /* MQTTError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE92CD382888F67A00EAFA95 /* MQTTError.swift */; };
+		CE92CD4C2888F67A00EAFA95 /* MQTTCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE92CD392888F67A00EAFA95 /* MQTTCredentials.swift */; };
+		CE92CD4D2888F67A00EAFA95 /* MQTTLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE92CD3A2888F67A00EAFA95 /* MQTTLogger.swift */; };
+		CE92CD4E2888F67A00EAFA95 /* MQTTClientBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE92CD3D2888F67A00EAFA95 /* MQTTClientBuilder.swift */; };
+		CE92CD4F2888F67A00EAFA95 /* MQTTClient+MQTTClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE92CD3E2888F67A00EAFA95 /* MQTTClient+MQTTClientProtocol.swift */; };
+		CE92CD502888F67A00EAFA95 /* TLSConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE92CD3F2888F67A00EAFA95 /* TLSConfigurationBuilder.swift */; };
+		CE92CD512888F67A00EAFA95 /* MQTTNIO+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE92CD402888F67A00EAFA95 /* MQTTNIO+Extensions.swift */; };
+		CE92CD522888F67A00EAFA95 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE92CD412888F67A00EAFA95 /* Secrets.swift */; };
+		CE92CD532888F67A00EAFA95 /* MQTTCustumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE92CD422888F67A00EAFA95 /* MQTTCustumer.swift */; };
+		CE92CD542888F67A00EAFA95 /* MQTTMDClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE92CD442888F67A00EAFA95 /* MQTTMDClient.swift */; };
+		CE92CD552888F67A00EAFA95 /* MQTTClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE92CD452888F67A00EAFA95 /* MQTTClientProtocol.swift */; };
+		CE92CD562888F67A00EAFA95 /* MQTTSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE92CD462888F67A00EAFA95 /* MQTTSubscription.swift */; };
+		CE92CD572888F67A00EAFA95 /* MQTTEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE92CD472888F67A00EAFA95 /* MQTTEndpoint.swift */; };
+		CE92CD582888F67A00EAFA95 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CE92CD482888F67A00EAFA95 /* README.md */; };
 		CEC23C0B28814085001B5C45 /* MQTTNIO in Frameworks */ = {isa = PBXBuildFile; productRef = CEC23C0A28814085001B5C45 /* MQTTNIO */; };
 /* End PBXBuildFile section */
 
@@ -63,20 +65,22 @@
 		A849032F27EC691C000B50D3 /* mqtt_nio_demoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mqtt_nio_demoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A849033F27EC6B36000B50D3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A849034127EC6B61000B50D3 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		A849034627EC7D77000B50D3 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
-		C0876ED728395C5E008B57D6 /* MQTTEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MQTTEndpoint.swift; sourceTree = "<group>"; };
-		C09804BA283CC08300D4EB8B /* MQTTClient+MQTTClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MQTTClient+MQTTClientProtocol.swift"; sourceTree = "<group>"; };
-		C09804BC283CC0B100D4EB8B /* MQTTClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MQTTClientProtocol.swift; sourceTree = "<group>"; };
-		CE64B24C287B8FAC00EBA149 /* MQTTMDClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTMDClient.swift; sourceTree = "<group>"; };
-		CE95CF0128698BA600C85DF5 /* MQTTError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MQTTError.swift; sourceTree = "<group>"; };
-		CE95CF0528698BD800C85DF5 /* MQTTDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MQTTDecoder.swift; sourceTree = "<group>"; };
-		CE95CF092869955A00C85DF5 /* MQTTClientBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MQTTClientBuilder.swift; sourceTree = "<group>"; };
-		CE95CF0B2869982600C85DF5 /* TLSConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLSConfigurationBuilder.swift; sourceTree = "<group>"; };
-		CE95CF0F2869B0CF00C85DF5 /* MQTTLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MQTTLogger.swift; sourceTree = "<group>"; };
-		CEAD3CA9286C598200300A68 /* MQTTSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MQTTSubscription.swift; sourceTree = "<group>"; };
-		CEAD3CB1286D644500300A68 /* MQTTCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTCredentials.swift; sourceTree = "<group>"; };
-		CEAD3CB3286D647000300A68 /* MQTTNIO+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MQTTNIO+Extensions.swift"; sourceTree = "<group>"; };
-		CEAD3CB8286D662D00300A68 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		CE92CD342888F67A00EAFA95 /* MQTTDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTDecoder.swift; sourceTree = "<group>"; };
+		CE92CD362888F67A00EAFA95 /* Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		CE92CD382888F67A00EAFA95 /* MQTTError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTError.swift; sourceTree = "<group>"; };
+		CE92CD392888F67A00EAFA95 /* MQTTCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTCredentials.swift; sourceTree = "<group>"; };
+		CE92CD3A2888F67A00EAFA95 /* MQTTLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTLogger.swift; sourceTree = "<group>"; };
+		CE92CD3D2888F67A00EAFA95 /* MQTTClientBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTClientBuilder.swift; sourceTree = "<group>"; };
+		CE92CD3E2888F67A00EAFA95 /* MQTTClient+MQTTClientProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MQTTClient+MQTTClientProtocol.swift"; sourceTree = "<group>"; };
+		CE92CD3F2888F67A00EAFA95 /* TLSConfigurationBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLSConfigurationBuilder.swift; sourceTree = "<group>"; };
+		CE92CD402888F67A00EAFA95 /* MQTTNIO+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MQTTNIO+Extensions.swift"; sourceTree = "<group>"; };
+		CE92CD412888F67A00EAFA95 /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		CE92CD422888F67A00EAFA95 /* MQTTCustumer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTCustumer.swift; sourceTree = "<group>"; };
+		CE92CD442888F67A00EAFA95 /* MQTTMDClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTMDClient.swift; sourceTree = "<group>"; };
+		CE92CD452888F67A00EAFA95 /* MQTTClientProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTClientProtocol.swift; sourceTree = "<group>"; };
+		CE92CD462888F67A00EAFA95 /* MQTTSubscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTSubscription.swift; sourceTree = "<group>"; };
+		CE92CD472888F67A00EAFA95 /* MQTTEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTEndpoint.swift; sourceTree = "<group>"; };
+		CE92CD482888F67A00EAFA95 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,14 +132,13 @@
 		A849031127EC6916000B50D3 /* mqtt-nio-demo */ = {
 			isa = PBXGroup;
 			children = (
-				CE95CEFE28698B8C00C85DF5 /* MQTT */,
+				CE92CD312888F67A00EAFA95 /* Sources */,
 				A849031227EC6916000B50D3 /* mqtt_nio_demoApp.swift */,
 				A849031427EC6916000B50D3 /* ContentView.swift */,
 				A849031627EC691C000B50D3 /* Assets.xcassets */,
 				A849031827EC691C000B50D3 /* Preview Content */,
 				A849033F27EC6B36000B50D3 /* HomeView.swift */,
 				A849034127EC6B61000B50D3 /* HomeViewModel.swift */,
-				A849034627EC7D77000B50D3 /* Secrets.swift */,
 			);
 			path = "mqtt-nio-demo";
 			sourceTree = "<group>";
@@ -165,72 +168,84 @@
 			path = "mqtt-nio-demoUITests";
 			sourceTree = "<group>";
 		};
-		CE95CEFE28698B8C00C85DF5 /* MQTT */ = {
+		CE92CD312888F67A00EAFA95 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				CEAD3CB7286D662100300A68 /* MQTTTests */,
-				CEAD3CB5286D64B100300A68 /* MQTTTopicProvider+Combine */,
-				CEAD3CB0286D63DC00300A68 /* MQTTUtils */,
-				CEAD3CAF286D63D300300A68 /* MQTTDecoder */,
-				CEAD3CA8286C597200300A68 /* MQTTProvider */,
-				CE95CF11286AB62A00C85DF5 /* MQTTNIO */,
+				CE92CD322888F67A00EAFA95 /* MQClient */,
+				CE92CD482888F67A00EAFA95 /* README.md */,
 			);
-			path = MQTT;
+			name = Sources;
+			path = ../../Sources;
 			sourceTree = "<group>";
 		};
-		CE95CF11286AB62A00C85DF5 /* MQTTNIO */ = {
+		CE92CD322888F67A00EAFA95 /* MQClient */ = {
 			isa = PBXGroup;
 			children = (
-				CEAD3CB3286D647000300A68 /* MQTTNIO+Extensions.swift */,
-				C09804BA283CC08300D4EB8B /* MQTTClient+MQTTClientProtocol.swift */,
-				CE95CF092869955A00C85DF5 /* MQTTClientBuilder.swift */,
-				CE95CF0B2869982600C85DF5 /* TLSConfigurationBuilder.swift */,
+				CE92CD332888F67A00EAFA95 /* MQTTDecoder */,
+				CE92CD352888F67A00EAFA95 /* MQTTTests */,
+				CE92CD372888F67A00EAFA95 /* MQTTUtils */,
+				CE92CD3B2888F67A00EAFA95 /* MQTTTopicProvider+Combine */,
+				CE92CD3C2888F67A00EAFA95 /* MQTTNIO */,
+				CE92CD412888F67A00EAFA95 /* Secrets.swift */,
+				CE92CD422888F67A00EAFA95 /* MQTTCustumer.swift */,
+				CE92CD432888F67A00EAFA95 /* MQTTProvider */,
 			);
-			path = MQTTNIO;
+			path = MQClient;
 			sourceTree = "<group>";
 		};
-		CEAD3CA8286C597200300A68 /* MQTTProvider */ = {
+		CE92CD332888F67A00EAFA95 /* MQTTDecoder */ = {
 			isa = PBXGroup;
 			children = (
-				C0876ED728395C5E008B57D6 /* MQTTEndpoint.swift */,
-				CEAD3CA9286C598200300A68 /* MQTTSubscription.swift */,
-				CE64B24C287B8FAC00EBA149 /* MQTTMDClient.swift */,
-				C09804BC283CC0B100D4EB8B /* MQTTClientProtocol.swift */,
-			);
-			path = MQTTProvider;
-			sourceTree = "<group>";
-		};
-		CEAD3CAF286D63D300300A68 /* MQTTDecoder */ = {
-			isa = PBXGroup;
-			children = (
-				CE95CF0528698BD800C85DF5 /* MQTTDecoder.swift */,
+				CE92CD342888F67A00EAFA95 /* MQTTDecoder.swift */,
 			);
 			path = MQTTDecoder;
 			sourceTree = "<group>";
 		};
-		CEAD3CB0286D63DC00300A68 /* MQTTUtils */ = {
+		CE92CD352888F67A00EAFA95 /* MQTTTests */ = {
 			isa = PBXGroup;
 			children = (
-				CE95CF0128698BA600C85DF5 /* MQTTError.swift */,
-				CEAD3CB1286D644500300A68 /* MQTTCredentials.swift */,
-				CE95CF0F2869B0CF00C85DF5 /* MQTTLogger.swift */,
+				CE92CD362888F67A00EAFA95 /* Tests.swift */,
+			);
+			path = MQTTTests;
+			sourceTree = "<group>";
+		};
+		CE92CD372888F67A00EAFA95 /* MQTTUtils */ = {
+			isa = PBXGroup;
+			children = (
+				CE92CD382888F67A00EAFA95 /* MQTTError.swift */,
+				CE92CD392888F67A00EAFA95 /* MQTTCredentials.swift */,
+				CE92CD3A2888F67A00EAFA95 /* MQTTLogger.swift */,
 			);
 			path = MQTTUtils;
 			sourceTree = "<group>";
 		};
-		CEAD3CB5286D64B100300A68 /* MQTTTopicProvider+Combine */ = {
+		CE92CD3B2888F67A00EAFA95 /* MQTTTopicProvider+Combine */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = "MQTTTopicProvider+Combine";
 			sourceTree = "<group>";
 		};
-		CEAD3CB7286D662100300A68 /* MQTTTests */ = {
+		CE92CD3C2888F67A00EAFA95 /* MQTTNIO */ = {
 			isa = PBXGroup;
 			children = (
-				CEAD3CB8286D662D00300A68 /* Tests.swift */,
+				CE92CD3D2888F67A00EAFA95 /* MQTTClientBuilder.swift */,
+				CE92CD3E2888F67A00EAFA95 /* MQTTClient+MQTTClientProtocol.swift */,
+				CE92CD3F2888F67A00EAFA95 /* TLSConfigurationBuilder.swift */,
+				CE92CD402888F67A00EAFA95 /* MQTTNIO+Extensions.swift */,
 			);
-			path = MQTTTests;
+			path = MQTTNIO;
+			sourceTree = "<group>";
+		};
+		CE92CD432888F67A00EAFA95 /* MQTTProvider */ = {
+			isa = PBXGroup;
+			children = (
+				CE92CD442888F67A00EAFA95 /* MQTTMDClient.swift */,
+				CE92CD452888F67A00EAFA95 /* MQTTClientProtocol.swift */,
+				CE92CD462888F67A00EAFA95 /* MQTTSubscription.swift */,
+				CE92CD472888F67A00EAFA95 /* MQTTEndpoint.swift */,
+			);
+			path = MQTTProvider;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,6 +358,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE92CD582888F67A00EAFA95 /* README.md in Resources */,
 				A849031A27EC691C000B50D3 /* Preview Assets.xcassets in Resources */,
 				A849031727EC691C000B50D3 /* Assets.xcassets in Resources */,
 			);
@@ -369,24 +385,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE95CF0A2869955A00C85DF5 /* MQTTClientBuilder.swift in Sources */,
-				CEAD3CB9286D662D00300A68 /* Tests.swift in Sources */,
-				CEAD3CAA286C598200300A68 /* MQTTSubscription.swift in Sources */,
-				CEAD3CB4286D647000300A68 /* MQTTNIO+Extensions.swift in Sources */,
+				CE92CD4E2888F67A00EAFA95 /* MQTTClientBuilder.swift in Sources */,
 				A849034027EC6B36000B50D3 /* HomeView.swift in Sources */,
-				C09804BD283CC0B100D4EB8B /* MQTTClientProtocol.swift in Sources */,
-				CE95CF0C2869982600C85DF5 /* TLSConfigurationBuilder.swift in Sources */,
-				A849034727EC7D77000B50D3 /* Secrets.swift in Sources */,
-				C0876ED828395C5E008B57D6 /* MQTTEndpoint.swift in Sources */,
+				CE92CD512888F67A00EAFA95 /* MQTTNIO+Extensions.swift in Sources */,
+				CE92CD542888F67A00EAFA95 /* MQTTMDClient.swift in Sources */,
+				CE92CD552888F67A00EAFA95 /* MQTTClientProtocol.swift in Sources */,
+				CE92CD4A2888F67A00EAFA95 /* Tests.swift in Sources */,
+				CE92CD532888F67A00EAFA95 /* MQTTCustumer.swift in Sources */,
+				CE92CD4B2888F67A00EAFA95 /* MQTTError.swift in Sources */,
 				A849031527EC6916000B50D3 /* ContentView.swift in Sources */,
+				CE92CD4C2888F67A00EAFA95 /* MQTTCredentials.swift in Sources */,
+				CE92CD562888F67A00EAFA95 /* MQTTSubscription.swift in Sources */,
+				CE92CD572888F67A00EAFA95 /* MQTTEndpoint.swift in Sources */,
+				CE92CD4D2888F67A00EAFA95 /* MQTTLogger.swift in Sources */,
 				A849031327EC6916000B50D3 /* mqtt_nio_demoApp.swift in Sources */,
+				CE92CD522888F67A00EAFA95 /* Secrets.swift in Sources */,
+				CE92CD4F2888F67A00EAFA95 /* MQTTClient+MQTTClientProtocol.swift in Sources */,
 				A849034227EC6B61000B50D3 /* HomeViewModel.swift in Sources */,
-				CE95CF102869B0CF00C85DF5 /* MQTTLogger.swift in Sources */,
-				CE95CF0628698BD800C85DF5 /* MQTTDecoder.swift in Sources */,
-				CEAD3CB2286D644500300A68 /* MQTTCredentials.swift in Sources */,
-				C09804BB283CC08300D4EB8B /* MQTTClient+MQTTClientProtocol.swift in Sources */,
-				CE95CF0228698BA600C85DF5 /* MQTTError.swift in Sources */,
-				CE64B24D287B8FAC00EBA149 /* MQTTMDClient.swift in Sources */,
+				CE92CD502888F67A00EAFA95 /* TLSConfigurationBuilder.swift in Sources */,
+				CE92CD492888F67A00EAFA95 /* MQTTDecoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
