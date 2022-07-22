@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MQTTDecoder {
+public class MQTTDecoder {
     static var `default` = MQTTDecoder()
     
     func canDecode(message: Any) -> Bool {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MQTTEndpoint {
+public struct MQTTEndpoint {
 
     enum ProtocolVersion {
         case version3_1_1
@@ -27,8 +27,8 @@ extension MQTTEndpoint {
     }
 }
 
-extension MQTTEndpoint {
-    static let safuletQA: MQTTEndpoint = .init(
+public extension MQTTEndpoint {
+    public static let safuletQA: MQTTEndpoint = .init(
         host: "mqtt.ff6160c527b.com",
         port: 443,
         credential: .init(
@@ -39,7 +39,7 @@ extension MQTTEndpoint {
         secretKeys: .safuletQA
     )
 
-    static let safuletQA2: MQTTEndpoint = .init(
+    public static let safuletQA2: MQTTEndpoint = .init(
         host: "mqtt.ff6160c527b.com",
         port: 443,
         credential: .init(
@@ -50,7 +50,7 @@ extension MQTTEndpoint {
         secretKeys: .safuletQA
     )
 
-    static let tssSafulet: MQTTEndpoint = .init(
+    public static let tssSafulet: MQTTEndpoint = .init(
         host: "safulet-vmq.gywt73aq.xyz",
         port: 443,
         credential: .init(

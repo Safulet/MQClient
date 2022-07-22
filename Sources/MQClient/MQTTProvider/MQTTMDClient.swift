@@ -14,7 +14,7 @@ import Combine
 #endif
 
 
-enum SessionState {
+public enum SessionState {
     case initial
     case connecting
     case connected
@@ -23,7 +23,7 @@ enum SessionState {
     case disconnectedFromServer(reason: MQTTManagerDisconnectReason.ServerReason?)
     case connectionFailure(error: Error)
     
-    var isConnected: Bool {
+    public var isConnected: Bool {
         switch self {
         case .connected:
             return true
@@ -32,7 +32,7 @@ enum SessionState {
         }
     }
     
-    var message: String {
+    public var message: String {
         switch self {
         case .initial:
             return "idel"
@@ -52,7 +52,7 @@ enum SessionState {
     }
 }
 
-enum DisconnectReason {
+public enum DisconnectReason {
     case manually
     case connectionClosed
     
@@ -70,9 +70,9 @@ enum DisconnectReason {
 }
 
 
-class MQTTMDClient {
+public class MQTTMDClient {
 
-    static var shared = try! MQTTMDClient(endPoint: .safuletQA2, clientId: "client111")
+    public static var shared = try! MQTTMDClient(endPoint: .safuletQA2, clientId: "client111")
     var endPoint: MQTTEndpoint
     var clientId: String
     var client: MQTTClientProtocol!
@@ -97,7 +97,7 @@ class MQTTMDClient {
     
     private let lock = Lock()
     
-    init(endPoint: MQTTEndpoint, clientId: String) throws {
+    public init(endPoint: MQTTEndpoint, clientId: String) throws {
         self.endPoint = endPoint
         self.clientId = clientId
         let client = try MQTTClientBuilder.buildClient(endPoint: endPoint, clientID: clientId)
@@ -105,7 +105,7 @@ class MQTTMDClient {
         bindCallback()
     }
 
-    func setupClient(endPoint: MQTTEndpoint, clientId: String) throws {
+    public func setupClient(endPoint: MQTTEndpoint, clientId: String) throws {
         if endPoint.host != self.endPoint.host {
             self.endPoint = endPoint
             self.clientId = clientId
@@ -118,7 +118,7 @@ class MQTTMDClient {
         }
     }
     
-    func connectIfNeeded() {
+    public func connectIfNeeded() {
         if client.isConnected && state.isConnected {
             return
         }
@@ -214,70 +214,70 @@ extension MQTTMDClient {
 
 extension MQTTMDClient {
     
-    var isConnected: Bool {
+    public var isConnected: Bool {
         client.isConnected
     }
     
-    var isConnecting: Bool {
+    public var isConnecting: Bool {
         client.isConnecting
     }
     
-    func connect() {
+    public func connect() {
         client.connect()
     }
     
-    func reconnect() {
+    public func reconnect() {
         client.reconnect()
     }
     
-    func disconnect() {
+    public func disconnect() {
         subscriptions.removeAll()
         client.disconnect()
     }
     
-    func subscribe(to subscription: MQTTSubscription, callback: @escaping (Result<MQTTManagerSingleSubscribeResponse, Error>) -> Void) {
+    public func subscribe(to subscription: MQTTSubscription, callback: @escaping (Result<MQTTManagerSingleSubscribeResponse, Error>) -> Void) {
         var subscriptions = subscriptions[subscription.topic] ?? []
         subscriptions.insert(subscription)
         self.subscriptions[subscription.topic] = subscriptions
         client.subscribe(to: subscription.topic, callback: callback)
     }
     
-    func unsubscribe(from subscription: MQTTSubscription, callback: @escaping (Result<MQTTManagerSingleUnsubscribeResponse, Error>) -> Void) {
+    public func unsubscribe(from subscription: MQTTSubscription, callback: @escaping (Result<MQTTManagerSingleUnsubscribeResponse, Error>) -> Void) {
         var subscriptions = subscriptions[subscription.topic]
         subscriptions?.remove(subscription)
         self.subscriptions[subscription.topic] = subscriptions
         client.unsubscribe(from: subscription.topic, callback: callback)
     }
     
-    func publish(_ payload: String, to topic: String, qos: MQTTManagerQoS, retain: Bool, callback: @escaping (Result<Void, Error>) -> Void) {
+    public func publish(_ payload: String, to topic: String, qos: MQTTManagerQoS, retain: Bool, callback: @escaping (Result<Void, Error>) -> Void) {
         client.publish(payload, to: topic, qos: qos, retain: retain, callback: callback)
     }
     
-    func publish(_ payload: MQTTManagerPayload, to topic: String, qos: MQTTManagerQoS, retain: Bool, callback: @escaping (Result<Void, Error>) -> Void) {
+    public func publish(_ payload: MQTTManagerPayload, to topic: String, qos: MQTTManagerQoS, retain: Bool, callback: @escaping (Result<Void, Error>) -> Void) {
         client.publish(payload, to: topic, qos: qos, retain: retain, callback: callback)
     }
     
-    func setupConnectionCallbacks(onConnected: @escaping (MQTTManagerConnectResponse) -> Void, onReconnecting: @escaping () -> (), onDisconnected: @escaping (MQTTManagerDisconnectReason) -> Void, onConnectionFailure: @escaping (Error) -> (Void)) {
+    public func setupConnectionCallbacks(onConnected: @escaping (MQTTManagerConnectResponse) -> Void, onReconnecting: @escaping () -> (), onDisconnected: @escaping (MQTTManagerDisconnectReason) -> Void, onConnectionFailure: @escaping (Error) -> (Void)) {
         client.setupConnectionCallbacks(onConnected: onConnected, onReconnecting: onReconnecting, onDisconnected: onDisconnected, onConnectionFailure: onConnectionFailure)
     }
     
-    var messagePublisher: AnyPublisher<MQTTManagerMessage, Never> {
+    public var messagePublisher: AnyPublisher<MQTTManagerMessage, Never> {
         client.messagePublisher
     }
     
-    var connectPublisher: AnyPublisher<MQTTManagerConnectResponse, Never> {
+    public var connectPublisher: AnyPublisher<MQTTManagerConnectResponse, Never> {
         client.connectPublisher
     }
     
-    var reconnectPublisher: AnyPublisher<Void, Never> {
+    public var reconnectPublisher: AnyPublisher<Void, Never> {
         client.reconnectPublisher
     }
     
-    var disconnectPublisher: AnyPublisher<MQTTManagerDisconnectReason, Never> {
+    public var disconnectPublisher: AnyPublisher<MQTTManagerDisconnectReason, Never> {
         client.disconnectPublisher
     }
     
-    var connectionFailurePublisher: AnyPublisher<Error, Never> {
+    public var connectionFailurePublisher: AnyPublisher<Error, Never> {
         client.connectionFailurePublisher
     }
 }

@@ -11,7 +11,7 @@ import NIO
 import Combine
 #endif
 
-class MQTTSubscription: NSObject {
+public class MQTTSubscription: NSObject {
     
     var topic: String = ""
     var decoder: MQTTDecoder = .default
@@ -23,7 +23,7 @@ class MQTTSubscription: NSObject {
     // - MARK: combine
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    var messagePublisher: AnyPublisher<MQTTManagerMessage, Never> {
+    public var messagePublisher: AnyPublisher<MQTTManagerMessage, Never> {
         client?.messagePublisher ?? Empty(completeImmediately: false).eraseToAnyPublisher()
     }
     #endif
