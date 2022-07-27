@@ -5,7 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "MQClient",
-    platforms: [.macOS(.v10_15), .iOS(.v12), .tvOS(.v12), .watchOS(.v6)],
+    platforms: [.macOS(.v10_15), .iOS(.v13), .tvOS(.v12), .watchOS(.v6)],
     products: [
         .library(name: "MQClient",targets: ["MQClient"]),
     ],
