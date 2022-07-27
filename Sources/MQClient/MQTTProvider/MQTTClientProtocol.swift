@@ -19,6 +19,10 @@ protocol MQTTClientProtocol {
     )
     func subscribe(topic: String, callback: @escaping (Result<MQSuback, Error>) -> Void)
     func unsubscribe(topicId: String, callback: @escaping (Result<Void, Error>) -> Void)
+    
+    func addPublishListener(named: String, _ listener: @escaping (Result<MQPublishInfo, Error>) -> Void)
+    func addCloseListener(named: String, _ listener: @escaping (Result<Void, Error>) -> Void)
+    func addShutdownListener(named: String, _ listener: @escaping (Result<Void, Error>) -> Void)
 //    func createCsr(privateKeyPem: String, dnsName: String) throws -> String
 //    func verifyCert(rootCA: String, privateKeyPem: String, dnsName: String) throws
 }

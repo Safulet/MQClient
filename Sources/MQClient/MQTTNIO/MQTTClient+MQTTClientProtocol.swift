@@ -12,9 +12,10 @@ import Crypto
 
 
 public typealias MQSuback = MQTTSuback
+public typealias MQPublishInfo = MQTTPublishInfo
 
 extension MQTTClient: MQTTClientProtocol {
-    
+
     func connect(callback: @escaping (Result<Bool, Error>) -> Void) {
         connect(cleanSession: false).whenComplete(callback)
     }
@@ -54,8 +55,9 @@ extension MQTTClient: MQTTClientProtocol {
     }
     
     func verifyCert(rootCA: String, privateKeyPem: String, dnsName: String) throws {
-        
+
     }
+    
 }
 
 

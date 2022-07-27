@@ -23,7 +23,7 @@ public class MQClient {
     var decoders = [String: MQTTDecoder]()
     var keyring: KeyRing = .defaultKeyRing
     
-    init(
+    public init(
         endPoint: String,
         port: Int,
         clientId: String,
@@ -45,7 +45,7 @@ public class MQClient {
         self.clientId = clientId
     }
     
-    init(
+    public init(
         endPoint: String,
         port: Int,
         clientId: String,
@@ -67,7 +67,7 @@ public class MQClient {
         self.clientId = clientId
     }
     
-    init(
+    public init(
         endPoint: String,
         port: Int,
         clientId: String,
@@ -87,68 +87,79 @@ public class MQClient {
         self.clientId = clientId
     }
     
-    func connect(callback: @escaping (Result<Bool, Error>) -> Void) {
+    public func connect(callback: @escaping (Result<Bool, Error>) -> Void) {
         client.flushConnect(callback: callback)
     }
     
-    func flushConnect(callback: @escaping (Result<Bool, Error>) -> Void) {
+    public func flushConnect(callback: @escaping (Result<Bool, Error>) -> Void) {
         client.flushConnect(callback: callback)
     }
+
+    public func subscribe(topic: String, callback: @escaping (Result<MQSuback, Error>) -> Void) {
+        client.subscribe(topic: topic, callback: callback)
+    }
     
-    func publish(
+    public func subscribeInAdvance(topic: String, callback: @escaping (Result<MQSuback, Error>) -> Void) {
+        
+    }
+    
+    public func subscribeSecure(topic: String, callback: @escaping (Result<MQSuback, Error>) -> Void) {
+        
+    }
+    
+    public func unsubscribe(topicId: String, callback: @escaping (Result<Void, Error>) -> Void) {
+        client.unsubscribe(topicId: topicId, callback: callback)
+    }
+    
+    public func forceUnsubscribe(topicId: String, callback: @escaping (Result<Void, Error>) -> Void) {
+        
+    }
+    
+    public func addPublishListener(named: String, _ listener: @escaping (Result<MQPublishInfo, Error>) -> Void) {
+        client.addPublishListener(named: named, listener)
+    }
+    public func addCloseListener(named: String, _ listener: @escaping (Result<Void, Error>) -> Void) {
+        client.addCloseListener(named: named, listener)
+    }
+    public func addShutdownListener(named: String, _ listener: @escaping (Result<Void, Error>) -> Void) {
+        client.addShutdownListener(named: named, listener)
+    }
+    
+    public func createCsr(privateKeyPem: String, dnsName: String) {
+        
+    }
+    
+    
+    public func verifyCert(rootCA: String, privateKeyPem: String, dnsName: String) {
+        
+    }
+    
+    public func publish(
         topic: String,
         typeId: String,
         isQos2: Bool,
         isRetained: Bool,
-        data: String) {
-            
-        }
-
-    func publishSecure(
+        data: String,
+        callback: @escaping (Result<Void, Error>) -> Void
+    ) {
+        client.publish(topic: topic, typeId: typeId, isQos2: isQos2, isRetained: isRetained, data: data, callback: callback)
+    }
+    
+    public func publishSecure(
         clientIds: [String],
         topic: String,
         typeId: String,
         sessionId: String,
         isQos2: Bool,
         isRetained: Bool,
-        data: String) {
+        data: String,
+        callback: @escaping (Result<Void, Error>) -> Void
+    ) {
             
-        }
-    
-    func subscribe(topic: String, callback: @escaping (Result<MQSuback, Error>) -> Void) {
-        client.subscribe(topic: topic, callback: callback)
-    }
-    
-    func subscribeInAdvance(topic: String, callback: @escaping (Result<MQSuback, Error>) -> Void) {
-        
-    }
-    
-    func subscribeSecure(topic: String, callback: @escaping (Result<MQSuback, Error>) -> Void) {
-        
-    }
-    
-    func unsubscribe(topicId: String, callback: @escaping (Result<Void, Error>) -> Void) {
-        client.unsubscribe(topicId: topicId, callback: callback)
-    }
-    
-    func forceUnsubscribe(topicId: String, callback: @escaping (Result<Void, Error>) -> Void) {
-        
-    }
-    
-    func createCsr(privateKeyPem: String, dnsName: String) {
-        
     }
     
     
-    func verifyCert(rootCA: String, privateKeyPem: String, dnsName: String) {
-        
-    }
-    
-    func publish(topic: String, typeId: String, isQos2: Bool, isRetained: Bool, data: String, callback: @escaping (Result<Void, Error>) -> Void) {
-        
-    }
-    
-    func createCsr(privateKeyPem: String, dnsName: String) throws -> String {
+    public func createCsr(privateKeyPem: String, dnsName: String) throws -> String {
         return ""
     }
 }
@@ -156,19 +167,19 @@ public class MQClient {
 
 // MARK: -- Keyring
 extension MQClient {
-    func setOurPrivateKeyFromPem(privPemStr: String) throws {
+    public func setOurPrivateKeyFromPem(privPemStr: String) throws {
         try keyring.savePrivateKeyFromPem(privateKeyPem: privPemStr)
     }
     
-    func addKnownClient(clientId: String, clientPubPemStr: String) {
+    public func addKnownClient(clientId: String, clientPubPemStr: String) {
         keyring.savePublicKeyFromPem(clientId: clientId, publicKeyPem: clientPubPemStr)
     }
     
-    func getKnownClientKey(clientId: String) throws -> String {
+    public func getKnownClientKey(clientId: String) throws -> String {
         try keyring.findPublicKeyPem(clientId: clientId)
     }
     
-    func loadKeyRing(serialized: String) throws {
+    public func loadKeyRing(serialized: String) throws {
         guard !keyring.hasPrivateKey(), let data = serialized.data(using: .utf8) else {
             //TODO: log here or throw exception
             return
