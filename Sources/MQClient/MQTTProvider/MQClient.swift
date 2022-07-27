@@ -21,8 +21,7 @@ public class MQClient {
     var client: MQTTClientProtocol!
     var logger: Logger = Logger(label: "MQTTConnector")
     var decoders = [String: MQTTDecoder]()
-    
-    var keyring: String
+    var keyring: KeyRing = .defaultKeyRing
     
     init(
         endPoint: String,
@@ -88,29 +87,12 @@ public class MQClient {
         self.clientId = clientId
     }
     
-    func flushConnect() -> EventLoopFuture<Any> {
-        client.disconnect()
-        client.connect()
+    func connect(callback: @escaping (Result<Bool, Error>) -> Void) {
+        client.flushConnect(callback: callback)
     }
     
-    func setOurPrivateKeyFromPem(privPemStr: String) {
-        
-    }
-    
-    func addKnownClient(clientId: String, clientPubPemStr: String) {
-
-    }
-    
-    func getKnownClientKey(clientId: String) {
-        
-    }
-    
-    func loadKeyRing(serialized: String) {
-        
-    }
-    
-    func serializeKeyRing() {
-        
+    func flushConnect(callback: @escaping (Result<Bool, Error>) -> Void) {
+        client.flushConnect(callback: callback)
     }
     
     func publish(
@@ -133,24 +115,23 @@ public class MQClient {
             
         }
     
-    func subscribe(topic: String) {
+    func subscribe(topic: String, callback: @escaping (Result<MQSuback, Error>) -> Void) {
+        client.subscribe(topic: topic, callback: callback)
+    }
+    
+    func subscribeInAdvance(topic: String, callback: @escaping (Result<MQSuback, Error>) -> Void) {
         
     }
     
-    
-    func subscribeInAdvance(topic: String) {
+    func subscribeSecure(topic: String, callback: @escaping (Result<MQSuback, Error>) -> Void) {
         
     }
     
-    func subscribeSecure(topic: String) {
-        
+    func unsubscribe(topicId: String, callback: @escaping (Result<Void, Error>) -> Void) {
+        client.unsubscribe(topicId: topicId, callback: callback)
     }
     
-    func unsubscribe(topicId: String) {
-        
-    }
-    
-    func forceUnsubscribe(topicId: String) {
+    func forceUnsubscribe(topicId: String, callback: @escaping (Result<Void, Error>) -> Void) {
         
     }
     
@@ -162,7 +143,51 @@ public class MQClient {
     func verifyCert(rootCA: String, privateKeyPem: String, dnsName: String) {
         
     }
+    
+    func publish(topic: String, typeId: String, isQos2: Bool, isRetained: Bool, data: String, callback: @escaping (Result<Void, Error>) -> Void) {
+        
+    }
+    
+    func createCsr(privateKeyPem: String, dnsName: String) throws -> String {
+        return ""
+    }
 }
+
+
+// MARK: -- Keyring
+extension MQClient {
+    func setOurPrivateKeyFromPem(privPemStr: String) throws {
+        try keyring.savePrivateKeyFromPem(privateKeyPem: privPemStr)
+    }
+    
+    func addKnownClient(clientId: String, clientPubPemStr: String) {
+        keyring.savePublicKeyFromPem(clientId: clientId, publicKeyPem: clientPubPemStr)
+    }
+    
+    func getKnownClientKey(clientId: String) throws -> String {
+        try keyring.findPublicKeyPem(clientId: clientId)
+    }
+    
+    func loadKeyRing(serialized: String) throws {
+        guard !keyring.hasPrivateKey(), let data = serialized.data(using: .utf8) else {
+            //TODO: log here or throw exception
+            return
+        }
+        let dict = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+        let privateKeyPem = (dict?["sk"] as? String) ?? ""
+        let privateKey = try RSAPrivateKey(pemRepresentation: privateKeyPem)
+        let publicKeys = (dict?["pks"] as? [String: String]) ?? [:]
+        keyring = KeyRing(privateKey: privateKey, publicKeys: publicKeys)
+    }
+    
+    func serializeKeyRing() -> String {
+        keyring.serialize()
+    }
+}
+
+
+
+
 //
 //    var endPoint: MQTTEndpoint
 //    var clientId: String

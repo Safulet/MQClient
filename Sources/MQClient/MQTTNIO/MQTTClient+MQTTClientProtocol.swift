@@ -8,14 +8,22 @@
 import Foundation
 import MQTTNIO
 import NIO
+import Crypto
+
+
+public typealias MQSuback = MQTTSuback
 
 extension MQTTClient: MQTTClientProtocol {
     
-    func flushConnect() {
-        disconnect().whenComplete { result in
+    func connect(callback: @escaping (Result<Bool, Error>) -> Void) {
+        connect(cleanSession: false).whenComplete(callback)
+    }
+    
+    func flushConnect(callback: @escaping (Result<Bool, Error>) -> Void) {
+        disconnect().whenComplete { [weak self] result in
             switch result {
             case .success:
-                self.connect()
+                self?.connect(cleanSession: false).whenComplete(callback)
             case .failure:
                 break
             }
@@ -27,48 +35,25 @@ extension MQTTClient: MQTTClientProtocol {
         typeId: String,
         isQos2: Bool,
         isRetained: Bool,
-        data: String) {
-            
-        }
+        data: String,
+        callback: @escaping (Result<Void, Error>) -> Void
+    ) {
+        publish(to: topic, payload: ByteBuffer(string: data), qos: isQos2 ? .exactlyOnce : .atLeastOnce).whenComplete(callback)
+    }
 
-    func publishSecure(
-        clientIds: [String],
-        topic: String,
-        typeId: String,
-        sessionId: String,
-        isQos2: Bool,
-        isRetained: Bool,
-        data: String) {
-            
-        }
-    
-    func subscribe(topic: String) {
-        
+    func subscribe(topic: String, callback: @escaping (Result<MQSuback, Error>) -> Void) {
+        subscribe(to: [MQTTSubscribeInfo(topicFilter: topic, qos: .atLeastOnce)]).whenComplete(callback)
     }
     
-    
-    func subscribeInAdvance(topic: String) {
-        
+    func unsubscribe(topicId: String, callback: @escaping (Result<Void, Error>) -> Void) {
+        unsubscribe(from: [topicId]).whenComplete(callback)
     }
     
-    func subscribeSecure(topic: String) {
-        
+    func createCsr(privateKeyPem: String, dnsName: String) throws -> String {
+        return ""
     }
     
-    func unsubscribe(topicId: String) {
-        
-    }
-    
-    func forceUnsubscribe(topicId: String) {
-        
-    }
-    
-    func createCsr(privateKeyPem: String, dnsName: String) {
-        
-    }
-    
-    
-    func verifyCert(rootCA: String, privateKeyPem: String, dnsName: String) {
+    func verifyCert(rootCA: String, privateKeyPem: String, dnsName: String) throws {
         
     }
 }

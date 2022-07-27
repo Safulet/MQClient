@@ -14,7 +14,7 @@ public class MQTTDecoder {
         return true
     }
     
-    func decode(message: MQMessage) -> Any {
+    func decode(message: String) -> Any {
         return ""
     }
 }

@@ -7,62 +7,20 @@ import Combine
 import NIO
 
 protocol MQTTClientProtocol {
-
-    // - MARK: connect
-    func connect()
-    func reconnect()
-    func disconnect()
-    func setupConnectionCallbacks(
-        onConnected: @escaping (MQConnectResponse) -> Void,
-        onReconnecting: @escaping () -> (),
-        onDisconnected: @escaping (MQDisconnectReason) -> Void,
-        onConnectionFailure: @escaping (Error) -> (Void)
-    )
-    
-    // - MARK: publish
+    func connect(callback: @escaping (Result<Bool, Error>) -> Void)
+    func flushConnect(callback: @escaping (Result<Bool, Error>) -> Void)
     func publish(
-        _ payload: String,
-        to topic: String,
-        qos: MQQoS,
-        retain: Bool,
+        topic: String,
+        typeId: String,
+        isQos2: Bool,
+        isRetained: Bool,
+        data: String,
         callback: @escaping (Result<Void, Error>) -> Void
     )
-    
-    func publish(
-        _ payload: MQPayload,
-        to topic: String,
-        qos: MQQoS,
-        retain: Bool,
-        callback: @escaping (Result<Void, Error>) -> Void
-    ) 
-    
-    // - MARK: subscribe
-    func subscribe(
-        to topic: String,
-        callback: @escaping (Result<MQSingleSubscribeResponse, Error>) -> Void
-    )
-    
-    func unsubscribe(from topic: String, callback: @escaping (Result<MQSingleUnsubscribeResponse, Error>) -> Void)
-    
-    func whenReceiveMessage(_ callback: @escaping (MQMessage) -> Void)
-    
-    // - MARK: combine
-    #if canImport(Combine)
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    var messagePublisher: AnyPublisher<MQMessage, Never> { get }
-    
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    var connectPublisher: AnyPublisher<MQConnectResponse, Never> { get }
-    
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    var reconnectPublisher: AnyPublisher<Void, Never> { get }
-    
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    var disconnectPublisher: AnyPublisher<MQDisconnectReason, Never> { get }
-    
-    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    var connectionFailurePublisher: AnyPublisher<Error, Never> { get }
-    #endif
+    func subscribe(topic: String, callback: @escaping (Result<MQSuback, Error>) -> Void)
+    func unsubscribe(topicId: String, callback: @escaping (Result<Void, Error>) -> Void)
+//    func createCsr(privateKeyPem: String, dnsName: String) throws -> String
+//    func verifyCert(rootCA: String, privateKeyPem: String, dnsName: String) throws
 }
 
 
