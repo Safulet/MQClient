@@ -148,6 +148,7 @@ public class MQClient {
     
     public func publish(
         topic: String,
+        typeId: String,
         isQos2: Bool,
         isRetained: Bool,
         data: String,

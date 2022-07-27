@@ -10,16 +10,20 @@ let package = Package(
         .library(name: "MQClient",targets: ["MQClient"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/swift-server-community/mqtt-nio.git", from: "2.4.0"),
+        .package(url: "https://github.com/swift-server-community/mqtt-nio.git", exact: "2.5.2"),
         .package(url: "https://github.com/apple/swift-crypto.git", "1.0.0" ..< "3.0.0"),
+        .package(url: "https://github.com/apple/swift-nio-ssl.git", from: "2.14.0"),
+        .package(url: "https://github.com/apple/swift-nio-transport-services.git", from: "1.6.0"),
     ],
     targets: [
         .target(
             name: "MQClient",
             dependencies: [
                 .product(name: "MQTTNIO", package: "mqtt-nio"),
+                .product(name: "NIOSSL", package: "swift-nio-ssl"),
                 .product(name: "Crypto", package: "swift-crypto"),
                 .product(name: "_CryptoExtras", package: "swift-crypto"),
+                .product(name: "NIOTransportServices", package: "swift-nio-transport-services"),
             ]
         ),
         .testTarget(

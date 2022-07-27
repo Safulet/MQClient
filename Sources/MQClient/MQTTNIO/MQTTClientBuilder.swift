@@ -35,20 +35,21 @@ class MQTTClientBuilder {
         let rootCertificate = try NIOSSLCertificate.fromPEMFile(caCertificatePath)
         let myCertificate = try NIOSSLCertificate.fromPEMFile(centificatePath)
         let myPrivateKey = try NIOSSLPrivateKey(file: privateKeyPath, format: .pem)
+    
         var tlsConfiguration: TLSConfiguration = TLSConfiguration.makeServerConfiguration(
             certificateChain: myCertificate.map { .certificate($0) },
             privateKey: .privateKey(myPrivateKey)
         )
         tlsConfiguration.trustRoots = .certificates(rootCertificate)
+        let configurationType: MQTTClient.TLSConfigurationType? = .niossl(tlsConfiguration)
         
         let clientConfiguration: MQTTClient.Configuration = .init(
             timeout: .seconds(30),
             userName: userName,
             password: password,
             useSSL: true,
-            tlsConfiguration: .niossl(tlsConfiguration)
+            tlsConfiguration: configurationType
         )
-        
         let client = MQTTClient(
             host: endPoint,
             port: port,
@@ -77,7 +78,6 @@ class MQTTClientBuilder {
             privateKey: .privateKey(myPrivateKey)
         )
         tlsConfiguration.trustRoots = .certificates(rootCertificate)
-        
         let clientConfiguration: MQTTClient.Configuration = .init(
             timeout: .seconds(30),
             userName: userName,
@@ -85,7 +85,6 @@ class MQTTClientBuilder {
             useSSL: true,
             tlsConfiguration: .niossl(tlsConfiguration)
         )
-        
         let client = MQTTClient(
             host: endPoint,
             port: port,
