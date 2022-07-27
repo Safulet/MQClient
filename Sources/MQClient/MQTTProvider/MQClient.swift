@@ -16,7 +16,7 @@ import Combine
 public class MQClient {
     
     var endPoint: String
-    var port: Int
+    var port: Int?
     var clientId: String
     var client: MQTTClientProtocol!
     var logger: Logger = Logger(label: "MQTTConnector")
@@ -25,7 +25,7 @@ public class MQClient {
     
     public init(
         endPoint: String,
-        port: Int,
+        port: Int?,
         clientId: String,
         privateKeyPath: String,
         centificatePath: String,
@@ -47,7 +47,7 @@ public class MQClient {
     
     public init(
         endPoint: String,
-        port: Int,
+        port: Int?,
         clientId: String,
         privateKey: String,
         certificate: String,
@@ -69,7 +69,7 @@ public class MQClient {
     
     public init(
         endPoint: String,
-        port: Int,
+        port: Int?,
         clientId: String,
         password: String,
         caCertificate: String

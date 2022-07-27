@@ -24,7 +24,7 @@ import NIOSSL
 class MQTTClientBuilder {
     static func buildClient(
         endPoint: String,
-        port: Int,
+        port: Int?,
         clientId: String,
         privateKeyPath: String,
         centificatePath: String,
@@ -57,7 +57,7 @@ class MQTTClientBuilder {
     
     static func buildClient(
         endPoint: String,
-        port: Int,
+        port: Int?,
         clientId: String,
         privateKey: String,
         certificate: String,
@@ -90,7 +90,7 @@ class MQTTClientBuilder {
     
     static func buildClient(
         endPoint: String,
-        port: Int,
+        port: Int?,
         clientId: String,
         password: String,
         caCertificate: String
