@@ -20,6 +20,9 @@ extension MQTTClient: MQTTClientProtocol {
         connect(cleanSession: false).whenComplete(callback)
     }
     
+    func disconnect(callback: @escaping (Result<Void, Error>) -> Void) {
+        disconnect().whenComplete(callback)
+    }
     func flushConnect(callback: @escaping (Result<Bool, Error>) -> Void) {
         disconnect().whenComplete { [weak self] result in
             switch result {

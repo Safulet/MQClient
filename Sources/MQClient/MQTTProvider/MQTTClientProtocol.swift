@@ -8,6 +8,7 @@ import NIO
 
 protocol MQTTClientProtocol {
     func connect(callback: @escaping (Result<Bool, Error>) -> Void)
+    func disconnect(callback: @escaping (Result<Void, Error>) -> Void)
     func flushConnect(callback: @escaping (Result<Bool, Error>) -> Void)
     func publish(
         topic: String,
