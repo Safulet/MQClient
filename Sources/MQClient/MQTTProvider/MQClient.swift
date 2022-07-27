@@ -96,7 +96,7 @@ public class MQClient {
     }
     
     public func connect(callback: @escaping (Result<Bool, Error>) -> Void) {
-        client.flushConnect(callback: callback)
+        client.connect(callback: callback)
     }
     
     public func disconnect(callback: @escaping (Result<Void, Error>) -> Void) {
