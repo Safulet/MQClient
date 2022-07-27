@@ -27,6 +27,8 @@ public class MQClient {
         endPoint: String,
         port: Int?,
         clientId: String,
+        userName: String? = nil,
+        password: String? = nil,
         privateKeyPath: String,
         centificatePath: String,
         caCertificatePath: String
@@ -35,6 +37,8 @@ public class MQClient {
             endPoint: endPoint,
             port: port,
             clientId: clientId,
+            userName: userName,
+            password: password,
             privateKeyPath: privateKeyPath,
             centificatePath: centificatePath,
             caCertificatePath: caCertificatePath
@@ -49,6 +53,8 @@ public class MQClient {
         endPoint: String,
         port: Int?,
         clientId: String,
+        userName: String? = nil,
+        password: String? = nil,
         privateKey: String,
         certificate: String,
         caCertificate: String
@@ -57,6 +63,8 @@ public class MQClient {
             endPoint: endPoint,
             port: port,
             clientId: clientId,
+            userName: userName,
+            password: password,
             privateKey: privateKey,
             certificate: certificate,
             caCertificate: caCertificate

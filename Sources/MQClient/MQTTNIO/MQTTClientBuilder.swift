@@ -26,6 +26,8 @@ class MQTTClientBuilder {
         endPoint: String,
         port: Int?,
         clientId: String,
+        userName: String? = nil,
+        password: String? = nil,
         privateKeyPath: String,
         centificatePath: String,
         caCertificatePath: String
@@ -41,6 +43,8 @@ class MQTTClientBuilder {
         
         let clientConfiguration: MQTTClient.Configuration = .init(
             timeout: .seconds(30),
+            userName: userName,
+            password: password,
             useSSL: true,
             tlsConfiguration: .niossl(tlsConfiguration)
         )
@@ -59,6 +63,8 @@ class MQTTClientBuilder {
         endPoint: String,
         port: Int?,
         clientId: String,
+        userName: String? = nil,
+        password: String? = nil,
         privateKey: String,
         certificate: String,
         caCertificate: String
@@ -74,6 +80,8 @@ class MQTTClientBuilder {
         
         let clientConfiguration: MQTTClient.Configuration = .init(
             timeout: .seconds(30),
+            userName: userName,
+            password: password,
             useSSL: true,
             tlsConfiguration: .niossl(tlsConfiguration)
         )
