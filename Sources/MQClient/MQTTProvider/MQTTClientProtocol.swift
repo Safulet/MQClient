@@ -7,18 +7,15 @@ import Combine
 import NIO
 
 protocol MQTTClientProtocol {
-    
-    var isConnected: Bool { get }
-    var isConnecting: Bool { get }
 
     // - MARK: connect
     func connect()
     func reconnect()
     func disconnect()
     func setupConnectionCallbacks(
-        onConnected: @escaping (MQTTManagerConnectResponse) -> Void,
+        onConnected: @escaping (MQConnectResponse) -> Void,
         onReconnecting: @escaping () -> (),
-        onDisconnected: @escaping (MQTTManagerDisconnectReason) -> Void,
+        onDisconnected: @escaping (MQDisconnectReason) -> Void,
         onConnectionFailure: @escaping (Error) -> (Void)
     )
     
@@ -26,15 +23,15 @@ protocol MQTTClientProtocol {
     func publish(
         _ payload: String,
         to topic: String,
-        qos: MQTTManagerQoS,
+        qos: MQQoS,
         retain: Bool,
         callback: @escaping (Result<Void, Error>) -> Void
     )
     
     func publish(
-        _ payload: MQTTManagerPayload,
+        _ payload: MQPayload,
         to topic: String,
-        qos: MQTTManagerQoS,
+        qos: MQQoS,
         retain: Bool,
         callback: @escaping (Result<Void, Error>) -> Void
     ) 
@@ -42,26 +39,26 @@ protocol MQTTClientProtocol {
     // - MARK: subscribe
     func subscribe(
         to topic: String,
-        callback: @escaping (Result<MQTTManagerSingleSubscribeResponse, Error>) -> Void
+        callback: @escaping (Result<MQSingleSubscribeResponse, Error>) -> Void
     )
     
-    func unsubscribe(from topic: String, callback: @escaping (Result<MQTTManagerSingleUnsubscribeResponse, Error>) -> Void)
+    func unsubscribe(from topic: String, callback: @escaping (Result<MQSingleUnsubscribeResponse, Error>) -> Void)
     
-    func whenReceiveMessage(_ callback: @escaping (MQTTManagerMessage) -> Void)
+    func whenReceiveMessage(_ callback: @escaping (MQMessage) -> Void)
     
     // - MARK: combine
     #if canImport(Combine)
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    var messagePublisher: AnyPublisher<MQTTManagerMessage, Never> { get }
+    var messagePublisher: AnyPublisher<MQMessage, Never> { get }
     
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    var connectPublisher: AnyPublisher<MQTTManagerConnectResponse, Never> { get }
+    var connectPublisher: AnyPublisher<MQConnectResponse, Never> { get }
     
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
     var reconnectPublisher: AnyPublisher<Void, Never> { get }
     
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    var disconnectPublisher: AnyPublisher<MQTTManagerDisconnectReason, Never> { get }
+    var disconnectPublisher: AnyPublisher<MQDisconnectReason, Never> { get }
     
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
     var connectionFailurePublisher: AnyPublisher<Error, Never> { get }

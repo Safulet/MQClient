@@ -11,64 +11,65 @@ import NIO
 
 extension MQTTClient: MQTTClientProtocol {
     
-    
-    func connect() {
-        self.connect().whenComplete{_ in }
+    func flushConnect() {
+        disconnect().whenComplete { result in
+            switch result {
+            case .success:
+                self.connect()
+            case .failure:
+                break
+            }
+        }
     }
     
-    func reconnect() {
-        _ = reconnect(sendWillMessage: false)
-    }
-    
-    func disconnect() {
-        _ = disconnect(sendWillMessage: false)
-    }
-    
-    func setupConnectionCallbacks(
-        onConnected: @escaping (MQTTManagerConnectResponse) -> (),
-        onReconnecting: @escaping () -> (),
-        onDisconnected: @escaping (MQTTDisconnectReason) -> Void,
-        onConnectionFailure: @escaping (Error) -> (Void))
-    {
-        whenConnected(onConnected)
-        whenReconnecting(onReconnecting)
-        whenDisconnected(onDisconnected)
-        whenConnectionFailure(onConnectionFailure)
-    }
+    func publish(
+        topic: String,
+        typeId: String,
+        isQos2: Bool,
+        isRetained: Bool,
+        data: String) {
+            
+        }
 
-    func publish(
-        _ payload: String,
-        to topic: String,
-        qos: MQTTManagerQoS,
-        retain: Bool,
-        callback: @escaping (Result<Void, Error>) -> Void
-    ) {
-        publish(payload, to: topic, qos: qos, retain: retain).whenComplete(callback)
+    func publishSecure(
+        clientIds: [String],
+        topic: String,
+        typeId: String,
+        sessionId: String,
+        isQos2: Bool,
+        isRetained: Bool,
+        data: String) {
+            
+        }
+    
+    func subscribe(topic: String) {
+        
     }
     
-    func publish(
-        _ payload: MQTTManagerPayload,
-        to topic: String,
-        qos: MQTTManagerQoS,
-        retain: Bool,
-        callback: @escaping (Result<Void, Error>) -> Void
-    ) {
-        publish(payload, to: topic, qos: qos, retain: retain).whenComplete(callback)
+    
+    func subscribeInAdvance(topic: String) {
+        
     }
     
-    func subscribe(
-        to topic: String,
-        callback: @escaping (Result<MQTTManagerSingleSubscribeResponse, Error>) -> Void
-        ) {
-        subscribe(to: topic, qos: .exactlyOnce).whenComplete(callback)
+    func subscribeSecure(topic: String) {
+        
     }
     
-    func unsubscribe(from topic: String, callback: @escaping (Result<MQTTManagerSingleUnsubscribeResponse, Error>) -> Void) {
-        unsubscribe(from: topic).whenComplete(callback)
+    func unsubscribe(topicId: String) {
+        
     }
     
-    func whenReceiveMessage(_ callback: @escaping (MQTTManagerMessage) -> Void) {
-        whenMessage(callback)
+    func forceUnsubscribe(topicId: String) {
+        
+    }
+    
+    func createCsr(privateKeyPem: String, dnsName: String) {
+        
+    }
+    
+    
+    func verifyCert(rootCA: String, privateKeyPem: String, dnsName: String) {
+        
     }
 }
 

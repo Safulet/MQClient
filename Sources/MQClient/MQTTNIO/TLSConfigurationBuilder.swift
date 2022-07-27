@@ -33,7 +33,6 @@ struct TLSConfigurationBuilder {
 
     /// Only supports PEM format
     private static func buildTLSConfiguration(caCertificate: [UInt8], certificate: [UInt8], privateKey: [UInt8], privateKeyFormat: NIOSSLSerializationFormats) throws -> TLSConfiguration? {
-
         let rootCertificate = try NIOSSLCertificate.fromPEMBytes(caCertificate)
         let myCertificate = try NIOSSLCertificate.fromPEMBytes(certificate)
         let myPrivateKey = try NIOSSLPrivateKey(bytes: privateKey, format: privateKeyFormat)

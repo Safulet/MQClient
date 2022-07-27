@@ -14,7 +14,7 @@ import Combine
 
 extension HomeView.HomeViewModel {
     func subscribe(to topic: String) {
-        provider.client = MQTTMDClient.shared
+        provider.client = MQClient.shared
         provider.topic = topic
         provider.subscribe { [weak self] result in
             DispatchQueue.main.async {
@@ -76,7 +76,7 @@ extension HomeView.HomeViewModel {
 extension HomeView {
 
     class HomeViewModel: ObservableObject {
-        var provider: MQTTSubscription = MQTTSubscription()
+        var provider: MQSubscription = MQSubscription()
         @Published var topicInput = "Test"
         @Published var messageInput = "asdf"
         @Published var output = [String]()
@@ -86,7 +86,7 @@ extension HomeView {
         init() {
 
             do {
-                MQTTMDClient.shared.connect()
+                MQClient.shared.connect()
             } catch {
                 print(error)
             }
@@ -94,11 +94,11 @@ extension HomeView {
         
         
         func connectMqtt() {
-            MQTTMDClient.shared.connect()
+            MQClient.shared.connect()
         }
 
         func disconnectMqtt() {
-            MQTTMDClient.shared.disconnect()
+            MQClient.shared.disconnect()
         }
 
         func subscribeTopic(topic: String) {

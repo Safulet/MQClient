@@ -478,7 +478,7 @@
           },
           {
             "name" : "onComplete",
-            "type" : "(Result<MQTTManagerSingleUnsubscribeResponse,Error>)->Void",
+            "type" : "(Result<MQSingleUnsubscribeResponse,Error>)->Void",
             "sel" : "onComplete"
           }
         ],
@@ -564,7 +564,7 @@
     },
     "super" : "",
     "type" : "class",
-    "name" : "MQTTManager"
+    "name" : "MQ"
   },
   {
     "protocols" : [
@@ -796,7 +796,7 @@
         "params" : [
           {
             "name" : "message",
-            "type" : "MQTTManagerMessage",
+            "type" : "MQMessage",
             "sel" : "message"
           }
         ],
