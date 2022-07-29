@@ -6,10 +6,7 @@
 //
 
 import Foundation
-import _CryptoExtras
-
-typealias RSAPrivateKey = _RSA.Signing.PrivateKey
-typealias RSAPublicKey = _RSA.Signing.PublicKey
+import SwiftyRSA
 
 enum KeyRingError: Error {
     case publicKeyEmpty
@@ -17,13 +14,13 @@ enum KeyRingError: Error {
 }
 
 public struct KeyRing {
-    var privateKey: RSAPrivateKey?
+    var privateKey: PrivateKey?
     var publicKeys: [String: String]
     
     public static var defaultKeyRing = KeyRing(publicKeys: [:])
     
     mutating func savePrivateKeyFromPem(privateKeyPem: String) throws {
-        let privateKey = try RSAPrivateKey(pemRepresentation: privateKeyPem)
+        let privateKey = try PrivateKey(pemEncoded: privateKeyPem)
         self.privateKey = privateKey
         
     }
@@ -32,14 +29,14 @@ public struct KeyRing {
         publicKeys[clientId] = publicKeyPem
     }
     
-    func findPublicKey(clientId: String) throws -> RSAPublicKey {
+    func findPublicKey(clientId: String) throws -> PublicKey {
         guard publicKeys.count > 0 else {
             throw KeyRingError.publicKeyEmpty
         }
         guard let publicKeyPem = publicKeys[clientId] else {
             throw KeyRingError.publicKeynotFound
         }
-        return try RSAPublicKey(pemRepresentation: publicKeyPem)
+        return try PublicKey(pemEncoded: publicKeyPem)
     }
     
     func findPublicKeyPem(clientId: String) throws -> String {
@@ -52,14 +49,14 @@ public struct KeyRing {
         return publicKeyPem
     }
     
-    func findPublicKeys(clientIds: [String]) throws -> [RSAPublicKey] {
+    func findPublicKeys(clientIds: [String]) throws -> [PublicKey] {
         let publicKeys = try clientIds.map {
             try findPublicKey(clientId: $0)
         }
         return publicKeys
     }
     
-    func getPrivateKey() -> RSAPrivateKey? {
+    func getPrivateKey() -> PrivateKey? {
         privateKey
     }
     
@@ -68,7 +65,7 @@ public struct KeyRing {
     }
     
     func serialize() -> String {
-        "{sk: \(privateKey?.pemRepresentation ?? ""), pks: \(publicKeys) }"
+        "{sk: \((try? privateKey?.pemString()) ?? ""), pks: \(publicKeys) }"
     }
     
     func length() -> Int {
