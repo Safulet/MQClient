@@ -22,7 +22,6 @@ public struct KeyRing {
     mutating func savePrivateKeyFromPem(privateKeyPem: String) throws {
         let privateKey = try PrivateKey(pemEncoded: privateKeyPem)
         self.privateKey = privateKey
-        
     }
 
     mutating func savePublicKeyFromPem(clientId: String, publicKeyPem: String) {

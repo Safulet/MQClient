@@ -16,6 +16,20 @@
 		A849033027EC691C000B50D3 /* mqtt_nio_demoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A849032F27EC691C000B50D3 /* mqtt_nio_demoUITestsLaunchTests.swift */; };
 		A849034027EC6B36000B50D3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A849033F27EC6B36000B50D3 /* HomeView.swift */; };
 		A849034227EC6B61000B50D3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A849034127EC6B61000B50D3 /* HomeViewModel.swift */; };
+		CEC19B2028A4A6FD00EF05AC /* SwCrypt in Frameworks */ = {isa = PBXBuildFile; productRef = CEC19B1F28A4A6FD00EF05AC /* SwCrypt */; };
+		CEC19B2228A4A74D00EF05AC /* PackTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC19B2128A4A74D00EF05AC /* PackTest.swift */; };
+		CEC19B3628A4A7B400EF05AC /* MQTTDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC19B2628A4A7B400EF05AC /* MQTTDecoder.swift */; };
+		CEC19B3728A4A7B400EF05AC /* SecureMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC19B2728A4A7B400EF05AC /* SecureMessage.swift */; };
+		CEC19B3828A4A7B400EF05AC /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC19B2928A4A7B400EF05AC /* Tests.swift */; };
+		CEC19B3928A4A7B400EF05AC /* MQTTError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC19B2B28A4A7B400EF05AC /* MQTTError.swift */; };
+		CEC19B3A28A4A7B400EF05AC /* MQTTClientBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC19B2E28A4A7B400EF05AC /* MQTTClientBuilder.swift */; };
+		CEC19B3B28A4A7B400EF05AC /* MQTTClient+MQTTClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC19B2F28A4A7B400EF05AC /* MQTTClient+MQTTClientProtocol.swift */; };
+		CEC19B3C28A4A7B400EF05AC /* MQClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC19B3128A4A7B400EF05AC /* MQClient.swift */; };
+		CEC19B3D28A4A7B400EF05AC /* MQTTClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC19B3228A4A7B400EF05AC /* MQTTClientProtocol.swift */; };
+		CEC19B3E28A4A7B400EF05AC /* KeyRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC19B3328A4A7B400EF05AC /* KeyRing.swift */; };
+		CEC19B3F28A4A7B400EF05AC /* MQClient+Secure.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC19B3428A4A7B400EF05AC /* MQClient+Secure.swift */; };
+		CEC19B4028A4A7B400EF05AC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CEC19B3528A4A7B400EF05AC /* README.md */; };
+		CEC19B4128A4A7BE00EF05AC /* SecureMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC19B2728A4A7B400EF05AC /* SecureMessage.swift */; };
 		CEC23C0B28814085001B5C45 /* MQTTNIO in Frameworks */ = {isa = PBXBuildFile; productRef = CEC23C0A28814085001B5C45 /* MQTTNIO */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +63,18 @@
 		A849032F27EC691C000B50D3 /* mqtt_nio_demoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mqtt_nio_demoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A849033F27EC6B36000B50D3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A849034127EC6B61000B50D3 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		CEC19B2128A4A74D00EF05AC /* PackTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackTest.swift; sourceTree = "<group>"; };
+		CEC19B2628A4A7B400EF05AC /* MQTTDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTDecoder.swift; sourceTree = "<group>"; };
+		CEC19B2728A4A7B400EF05AC /* SecureMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureMessage.swift; sourceTree = "<group>"; };
+		CEC19B2928A4A7B400EF05AC /* Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		CEC19B2B28A4A7B400EF05AC /* MQTTError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTError.swift; sourceTree = "<group>"; };
+		CEC19B2E28A4A7B400EF05AC /* MQTTClientBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTClientBuilder.swift; sourceTree = "<group>"; };
+		CEC19B2F28A4A7B400EF05AC /* MQTTClient+MQTTClientProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MQTTClient+MQTTClientProtocol.swift"; sourceTree = "<group>"; };
+		CEC19B3128A4A7B400EF05AC /* MQClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQClient.swift; sourceTree = "<group>"; };
+		CEC19B3228A4A7B400EF05AC /* MQTTClientProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTClientProtocol.swift; sourceTree = "<group>"; };
+		CEC19B3328A4A7B400EF05AC /* KeyRing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyRing.swift; sourceTree = "<group>"; };
+		CEC19B3428A4A7B400EF05AC /* MQClient+Secure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MQClient+Secure.swift"; sourceTree = "<group>"; };
+		CEC19B3528A4A7B400EF05AC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +83,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEC23C0B28814085001B5C45 /* MQTTNIO in Frameworks */,
+				CEC19B2028A4A6FD00EF05AC /* SwCrypt in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +107,7 @@
 		A849030627EC6916000B50D3 = {
 			isa = PBXGroup;
 			children = (
+				CEC19B2328A4A7B400EF05AC /* Sources */,
 				A849031127EC6916000B50D3 /* mqtt-nio-demo */,
 				A849032227EC691C000B50D3 /* mqtt-nio-demoTests */,
 				A849032C27EC691C000B50D3 /* mqtt-nio-demoUITests */,
@@ -121,6 +149,7 @@
 		A849032227EC691C000B50D3 /* mqtt-nio-demoTests */ = {
 			isa = PBXGroup;
 			children = (
+				CEC19B2128A4A74D00EF05AC /* PackTest.swift */,
 				A849032327EC691C000B50D3 /* mqtt_nio_demoTests.swift */,
 			);
 			path = "mqtt-nio-demoTests";
@@ -133,6 +162,81 @@
 				A849032F27EC691C000B50D3 /* mqtt_nio_demoUITestsLaunchTests.swift */,
 			);
 			path = "mqtt-nio-demoUITests";
+			sourceTree = "<group>";
+		};
+		CEC19B2328A4A7B400EF05AC /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				CEC19B2428A4A7B400EF05AC /* MQClient */,
+				CEC19B3528A4A7B400EF05AC /* README.md */,
+			);
+			name = Sources;
+			path = ../Sources;
+			sourceTree = "<group>";
+		};
+		CEC19B2428A4A7B400EF05AC /* MQClient */ = {
+			isa = PBXGroup;
+			children = (
+				CEC19B2528A4A7B400EF05AC /* MQTTDecoder */,
+				CEC19B2728A4A7B400EF05AC /* SecureMessage.swift */,
+				CEC19B2828A4A7B400EF05AC /* MQTTTests */,
+				CEC19B2A28A4A7B400EF05AC /* MQTTUtils */,
+				CEC19B2C28A4A7B400EF05AC /* MQTTTopicProvider+Combine */,
+				CEC19B2D28A4A7B400EF05AC /* MQTTNIO */,
+				CEC19B3028A4A7B400EF05AC /* MQTTProvider */,
+			);
+			path = MQClient;
+			sourceTree = "<group>";
+		};
+		CEC19B2528A4A7B400EF05AC /* MQTTDecoder */ = {
+			isa = PBXGroup;
+			children = (
+				CEC19B2628A4A7B400EF05AC /* MQTTDecoder.swift */,
+			);
+			path = MQTTDecoder;
+			sourceTree = "<group>";
+		};
+		CEC19B2828A4A7B400EF05AC /* MQTTTests */ = {
+			isa = PBXGroup;
+			children = (
+				CEC19B2928A4A7B400EF05AC /* Tests.swift */,
+			);
+			path = MQTTTests;
+			sourceTree = "<group>";
+		};
+		CEC19B2A28A4A7B400EF05AC /* MQTTUtils */ = {
+			isa = PBXGroup;
+			children = (
+				CEC19B2B28A4A7B400EF05AC /* MQTTError.swift */,
+			);
+			path = MQTTUtils;
+			sourceTree = "<group>";
+		};
+		CEC19B2C28A4A7B400EF05AC /* MQTTTopicProvider+Combine */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "MQTTTopicProvider+Combine";
+			sourceTree = "<group>";
+		};
+		CEC19B2D28A4A7B400EF05AC /* MQTTNIO */ = {
+			isa = PBXGroup;
+			children = (
+				CEC19B2E28A4A7B400EF05AC /* MQTTClientBuilder.swift */,
+				CEC19B2F28A4A7B400EF05AC /* MQTTClient+MQTTClientProtocol.swift */,
+			);
+			path = MQTTNIO;
+			sourceTree = "<group>";
+		};
+		CEC19B3028A4A7B400EF05AC /* MQTTProvider */ = {
+			isa = PBXGroup;
+			children = (
+				CEC19B3128A4A7B400EF05AC /* MQClient.swift */,
+				CEC19B3228A4A7B400EF05AC /* MQTTClientProtocol.swift */,
+				CEC19B3328A4A7B400EF05AC /* KeyRing.swift */,
+				CEC19B3428A4A7B400EF05AC /* MQClient+Secure.swift */,
+			);
+			path = MQTTProvider;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +257,7 @@
 			name = "mqtt-nio-demo";
 			packageProductDependencies = (
 				CEC23C0A28814085001B5C45 /* MQTTNIO */,
+				CEC19B1F28A4A6FD00EF05AC /* SwCrypt */,
 			);
 			productName = "mqtt-nio-demo";
 			productReference = A849030F27EC6916000B50D3 /* mqtt-nio-demo.app */;
@@ -228,6 +333,7 @@
 			mainGroup = A849030627EC6916000B50D3;
 			packageReferences = (
 				CEC23C0928814085001B5C45 /* XCRemoteSwiftPackageReference "mqtt-nio" */,
+				CEC19B1E28A4A6FD00EF05AC /* XCRemoteSwiftPackageReference "SwCrypt" */,
 			);
 			productRefGroup = A849031027EC6916000B50D3 /* Products */;
 			projectDirPath = "";
@@ -254,6 +360,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEC19B4028A4A7B400EF05AC /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +382,7 @@
 				A849031527EC6916000B50D3 /* ContentView.swift in Sources */,
 				A849031327EC6916000B50D3 /* mqtt_nio_demoApp.swift in Sources */,
 				A849034227EC6B61000B50D3 /* HomeViewModel.swift in Sources */,
+				CEC19B4128A4A7BE00EF05AC /* SecureMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +390,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEC19B3928A4A7B400EF05AC /* MQTTError.swift in Sources */,
+				CEC19B2228A4A74D00EF05AC /* PackTest.swift in Sources */,
+				CEC19B3D28A4A7B400EF05AC /* MQTTClientProtocol.swift in Sources */,
+				CEC19B3F28A4A7B400EF05AC /* MQClient+Secure.swift in Sources */,
+				CEC19B3828A4A7B400EF05AC /* Tests.swift in Sources */,
+				CEC19B3628A4A7B400EF05AC /* MQTTDecoder.swift in Sources */,
+				CEC19B3C28A4A7B400EF05AC /* MQClient.swift in Sources */,
+				CEC19B3A28A4A7B400EF05AC /* MQTTClientBuilder.swift in Sources */,
+				CEC19B3B28A4A7B400EF05AC /* MQTTClient+MQTTClientProtocol.swift in Sources */,
+				CEC19B3E28A4A7B400EF05AC /* KeyRing.swift in Sources */,
+				CEC19B3728A4A7B400EF05AC /* SecureMessage.swift in Sources */,
 				A849032427EC691C000B50D3 /* mqtt_nio_demoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -623,6 +742,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		CEC19B1E28A4A6FD00EF05AC /* XCRemoteSwiftPackageReference "SwCrypt" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/soyersoyer/SwCrypt";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.4;
+			};
+		};
 		CEC23C0928814085001B5C45 /* XCRemoteSwiftPackageReference "mqtt-nio" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sroebert/mqtt-nio.git";
@@ -634,6 +761,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CEC19B1F28A4A6FD00EF05AC /* SwCrypt */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEC19B1E28A4A6FD00EF05AC /* XCRemoteSwiftPackageReference "SwCrypt" */;
+			productName = SwCrypt;
+		};
 		CEC23C0A28814085001B5C45 /* MQTTNIO */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CEC23C0928814085001B5C45 /* XCRemoteSwiftPackageReference "mqtt-nio" */;

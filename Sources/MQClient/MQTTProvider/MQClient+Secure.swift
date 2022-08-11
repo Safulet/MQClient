@@ -11,10 +11,9 @@ import Logging
 import NIOConcurrencyHelpers
 #if canImport(Combine)
 import Combine
-import SwiftyRSA
-import CryptoSwift
 #endif
-
+import CryptoSwift
+import SwiftyRSA
 
 enum SecureError: Error {
     case privateKeyOrPayloadMissing
@@ -53,8 +52,7 @@ extension MQClient {
             let aesKey = randomData(count: 32)
             let aesMessage = ClearMessage(data: Data(aesKey))
             let encKey = try aesMessage.encrypted(with: publicKey, padding: .OAEP)
-            
-            let message = ClearMessage(string: payload, using: .utf8)
+            let message = try? ClearMessage(string: payload, using: .utf8)
             
         }
         
@@ -265,7 +263,7 @@ extension MQClient {
 //        }
 //        return bz[:]
 //    }
-}
+//}
 
 
 

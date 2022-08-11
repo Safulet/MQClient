@@ -10,10 +10,11 @@ let package = Package(
         .library(name: "MQClient",targets: ["MQClient"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/swift-server-community/mqtt-nio.git", exact: "2.5.2"),
-        .package(url: "https://github.com/krzyzanowskim/CryptoSwift", .upToNextMajor(from: "1.5.1")),
+        .package(url: "https://github.com/swift-server-community/mqtt-nio.git", exact: "2.5.0"),
         .package(url: "https://github.com/apple/swift-nio-ssl.git", from: "2.14.0"),
         .package(url: "https://github.com/apple/swift-nio-transport-services.git", from: "1.6.0"),
+        .package(url: "https://github.com/songtao046/CryptoSwift", .upToNextMajor(from: "1.0.1")),
+        .package(url: "https://github.com/soyersoyer/SwCrypt", .upToNextMajor(from: "5.1.4")),
         .package(url: "https://github.com/songtao046/SwiftyRSA", from: "1.0.0"),
         
     ],
@@ -23,9 +24,10 @@ let package = Package(
             dependencies: [
                 .product(name: "MQTTNIO", package: "mqtt-nio"),
                 .product(name: "NIOSSL", package: "swift-nio-ssl"),
-                .product(name: "SwiftyRSA", package: "SwiftyRSA"),
                 .product(name: "CryptoSwift", package: "CryptoSwift"),
                 .product(name: "NIOTransportServices", package: "swift-nio-transport-services"),
+                .product(name: "SwCrypt", package: "SwCrypt"),
+                .product(name: "SwiftyRSA", package: "SwiftyRSA")
             ]
         ),
         .testTarget(
