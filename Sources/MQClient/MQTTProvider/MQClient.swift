@@ -12,6 +12,7 @@ import NIOConcurrencyHelpers
 #if canImport(Combine)
 import Combine
 #endif
+import SwiftyRSA
 
 public class MQClient {
     
@@ -185,7 +186,7 @@ extension MQClient {
         }
         let dict = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
         let privateKeyPem = (dict?["sk"] as? String) ?? ""
-        let privateKey = try RSAPrivateKey(pemRepresentation: privateKeyPem)
+        let privateKey = try PrivateKey(pemEncoded: privateKeyPem)
         let publicKeys = (dict?["pks"] as? [String: String]) ?? [:]
         keyring = KeyRing(privateKey: privateKey, publicKeys: publicKeys)
     }
