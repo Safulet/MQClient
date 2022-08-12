@@ -38,10 +38,13 @@ class MQTTClientBuilder {
         centificatePath: String,
         caCertificatePath: String
     ) throws -> MQTTClientProtocol {
-        let rootCertificate = try NIOSSLCertificate.fromPEMFile(caCertificatePath)
-        let myCertificate = try NIOSSLCertificate.fromPEMFile(centificatePath)
-        let myPrivateKey = try NIOSSLPrivateKey(file: privateKeyPath, format: .pem)
         #if canImport(Network)
+        let certificates = try NIOSSLCertificate.fromPEMFile(caCertificatePath)
+        let rootCertificate = try certificates.map { certificate -> SecCertificate in
+            guard let certificate = SecCertificateCreateWithData(nil, Data(try certificate.toDERBytes()) as CFData) else { throw TSTLSConfiguration.Error.invalidData }
+            return certificate
+        }
+        
         let content = try String(contentsOfFile: privateKeyPath)
         let data = try SwKeyConvert.PrivateKey.pemToPKCS1DER(content)
         let options: [String: String] = [:]
@@ -58,6 +61,9 @@ class MQTTClientBuilder {
         var tlsConfiguration = TSTLSConfiguration(minimumTLSVersion: .tlsV10, maximumTLSVersion: .tlsV13, trustRoots: .certificates(rootCertificate), clientIdentity: .secIdentity(secIdentity), applicationProtocols: [], certificateVerification: .none)
         let configurationType: MQTTClient.TLSConfigurationType? = .ts(tlsConfiguration)
         #elseif canImport(NIOSSL)
+        let rootCertificate = try NIOSSLCertificate.fromPEMFile(caCertificatePath)
+        let myCertificate = try NIOSSLCertificate.fromPEMFile(centificatePath)
+        let myPrivateKey = try NIOSSLPrivateKey(file: privateKeyPath, format: .pem)
         var tlsConfiguration: TLSConfiguration = TLSConfiguration.makeServerConfiguration(
             certificateChain: myCertificate.map { .certificate($0) },
             privateKey: .privateKey(myPrivateKey)
@@ -97,6 +103,10 @@ class MQTTClientBuilder {
         let myPrivateKey = try NIOSSLPrivateKey(bytes: [UInt8](privateKey.utf8), format: .pem)
         
         #if canImport(Network)
+        let rootCertificates = try rootCertificate.map { certificate -> SecCertificate in
+            guard let certificate = SecCertificateCreateWithData(nil, Data(try certificate.toDERBytes()) as CFData) else { throw TSTLSConfiguration.Error.invalidData }
+            return certificate
+        }
         let data = try SwKeyConvert.PrivateKey.pemToPKCS1DER(privateKey.data(using: .utf8))
         var rawItems: CFArray?
         guard SecPKCS12Import(data as CFData, options as CFDictionary, &rawItems) == errSecSuccess else { throw TSTLSConfiguration.Error.invalidData }
@@ -106,7 +116,7 @@ class MQTTClientBuilder {
         else {
             throw TSTLSConfiguration.Error.invalidData
         }
-        var tlsConfiguration = TSTLSConfiguration(minimumTLSVersion: .tlsV10, maximumTLSVersion: .tlsV13, trustRoots: .certificates(rootCertificate), clientIdentity: .secIdentity(secIdentity), applicationProtocols: [], certificateVerification: .none)
+        var tlsConfiguration = TSTLSConfiguration(minimumTLSVersion: .tlsV10, maximumTLSVersion: .tlsV13, trustRoots: .certificates(rootCertificates), clientIdentity: .secIdentity(secIdentity), applicationProtocols: [], certificateVerification: .none)
         let configurationType: MQTTClient.TLSConfigurationType? = .ts(tlsConfiguration)
         #elseif canImport(NIOSSL)
         var tlsConfiguration: TLSConfiguration = TLSConfiguration.makeServerConfiguration(
@@ -142,7 +152,11 @@ class MQTTClientBuilder {
     ) throws -> MQTTClientProtocol {
         let rootCertificate = try NIOSSLCertificate.fromPEMBytes([UInt8](caCertificate.utf8))
         #if canImport(Network)
-        var tlsConfiguration = TSTLSConfiguration(minimumTLSVersion: .tlsV10, maximumTLSVersion: .tlsV13, trustRoots: .certificates(rootCertificate), clientIdentity: nil, applicationProtocols: [], certificateVerification: .none)
+        let rootCertificates = try rootCertificate.map { certificate -> SecCertificate in
+            guard let certificate = SecCertificateCreateWithData(nil, Data(try certificate.toDERBytes()) as CFData) else { throw TSTLSConfiguration.Error.invalidData }
+            return certificate
+        }
+        var tlsConfiguration = TSTLSConfiguration(minimumTLSVersion: .tlsV10, maximumTLSVersion: .tlsV13, trustRoots: .certificates(rootCertificates), clientIdentity: nil, applicationProtocols: [], certificateVerification: .none)
         let configurationType: MQTTClient.TLSConfigurationType? = .ts(tlsConfiguration)
         #elseif canImport(NIOSSL)
         var tlsConfiguration = TLSConfiguration.makeClientConfiguration()
