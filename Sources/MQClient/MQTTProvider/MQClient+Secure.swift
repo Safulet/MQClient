@@ -37,10 +37,10 @@ extension MQClient {
     }
     
     func packSecureMessage(typeId: String, sessionId: String, clientIds: [String], clientKeys: [Data], payload: String) throws -> SecureMessage {
-        if !keyring.hasPrivateKey() {
+        guard let privateKey = keyring.privateKey else {
             throw SecureError.privateKeyMissing
         }
-        let secureMessage = try Message.packSecureMessage(ourClientId: clientId, typeId: typeId, sessionId: sessionId, ourKey: keyring.privateKey, toClientIds: [], toKeys: [], payload: payload.data(using: .utf8))
+        let secureMessage = try Message.packSecureMessage(ourClientId: clientId, typeId: typeId, sessionId: sessionId, ourKey: privateKey, toClientIds: [], toKeys: [], payload: payload.data(using: .utf8))
         return secureMessage
     }
     func unpackSecureMessage(sessionId: String, ourKey: Data, senderKey: Data, secureMessage: SecureMessage) throws -> Data {

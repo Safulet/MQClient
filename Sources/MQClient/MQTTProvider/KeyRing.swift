@@ -20,7 +20,7 @@ public struct KeyRing {
     public static var defaultKeyRing = KeyRing(publicKeys: [:])
     
     mutating func savePrivateKeyFromPem(privateKeyPem: String) throws {
-        let privateKey = SwKeyConvert.PrivateKey.pemToPKCS1DER(privateKeyPem)
+        let privateKey = try SwKeyConvert.PrivateKey.pemToPKCS1DER(privateKeyPem)
         self.privateKey = privateKey
     }
 
@@ -65,7 +65,7 @@ public struct KeyRing {
     
     func serialize() -> String {
         
-        "{sk: \((try? SwKeyConvert.PrivateKey.derToPKCS1PEM(privateKey)) ?? ""), pks: \(publicKeys) }"
+        "{sk: \((try? SwKeyConvert.PrivateKey.derToPKCS1PEM(privateKey ?? Data())) ?? ""), pks: \(publicKeys) }"
     }
     
     func length() -> Int {

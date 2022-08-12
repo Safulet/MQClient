@@ -10,9 +10,8 @@ import MQTTNIO
 import NIO
 #if canImport(NIOSSL)
 import NIOSSL
-#elseif canImport(Network)
-case ts(TSTLSConfiguration)
 #endif
+import Network
 import SwCrypt
 
 // TODO: need to convert to native structure
@@ -52,15 +51,18 @@ class MQTTClientBuilder {
         #if canImport(Network)
         let content = try String(contentsOfFile: privateKeyPath)
         let data = try SwKeyConvert.PrivateKey.pemToPKCS1DER(content)
+        let options: [String: String] = [:]
         var rawItems: CFArray?
-        guard SecPKCS12Import(data as CFData, options as CFDictionary, &rawItems) == errSecSuccess else { throw TSTLSConfiguration.Error.invalidData }
+        guard SecPKCS12Import(data as CFData, options as CFDictionary, &rawItems) == errSecSuccess else {
+            throw TSTLSConfiguration.Error.invalidData
+        }
         let items = rawItems! as! [[String: Any]]
         guard let firstItem = items.first,
               let secIdentity = firstItem[kSecImportItemIdentity as String] as! SecIdentity?
         else {
             throw TSTLSConfiguration.Error.invalidData
         }
-        var tlsConfiguration:  = TSTLSConfiguration(minimumTLSVersion: .tlsV10, maximumTLSVersion: tlsV13, trustRoots: .certificates(rootCertificate), clientIdentity: .secIdentity(secIdentity), applicationProtocols: [], certificateVerification: .none)
+        var tlsConfiguration = TSTLSConfiguration(minimumTLSVersion: .tlsV10, maximumTLSVersion: tlsV13, trustRoots: .certificates(rootCertificate), clientIdentity: .secIdentity(secIdentity), applicationProtocols: [], certificateVerification: .none)
         let configurationType: MQTTClient.TLSConfigurationType? = .ts(tlsConfiguration)
         #endif
         let clientConfiguration: MQTTClient.Configuration = .init(
@@ -112,7 +114,7 @@ class MQTTClientBuilder {
         else {
             throw TSTLSConfiguration.Error.invalidData
         }
-        var tlsConfiguration:  = TSTLSConfiguration(minimumTLSVersion: .tlsV10, maximumTLSVersion: tlsV13, trustRoots: .certificates(rootCertificate), clientIdentity: .secIdentity(secIdentity), applicationProtocols: [], certificateVerification: .none)
+        var tlsConfiguration = TSTLSConfiguration(minimumTLSVersion: .tlsV10, maximumTLSVersion: tlsV13, trustRoots: .certificates(rootCertificate), clientIdentity: .secIdentity(secIdentity), applicationProtocols: [], certificateVerification: .none)
         let configurationType: MQTTClient.TLSConfigurationType? = .ts(tlsConfiguration)
         #endif
         let clientConfiguration: MQTTClient.Configuration = .init(
@@ -146,7 +148,7 @@ class MQTTClientBuilder {
         let configurationType: MQTTClient.TLSConfigurationType? = .niossl(tlsConfiguration)
         #endif
         #if canImport(Network)
-        var tlsConfiguration:  = TSTLSConfiguration(minimumTLSVersion: .tlsV10, maximumTLSVersion: tlsV13, trustRoots: .certificates(rootCertificate), clientIdentity: nil, applicationProtocols: [], certificateVerification: .none)
+        var tlsConfiguration = TSTLSConfiguration(minimumTLSVersion: .tlsV10, maximumTLSVersion: tlsV13, trustRoots: .certificates(rootCertificate), clientIdentity: nil, applicationProtocols: [], certificateVerification: .none)
         let configurationType: MQTTClient.TLSConfigurationType? = .ts(tlsConfiguration)
         #endif
         
