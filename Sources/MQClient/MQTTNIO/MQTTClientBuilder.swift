@@ -107,7 +107,7 @@ class MQTTClientBuilder {
             guard let certificate = SecCertificateCreateWithData(nil, Data(try certificate.toDERBytes()) as CFData) else { throw TSTLSConfiguration.Error.invalidData }
             return certificate
         }
-        let data = try SwKeyConvert.PrivateKey.pemToPKCS1DER(privateKey.data(using: .utf8) ?? Data())
+        let data = try SwKeyConvert.PrivateKey.pemToPKCS1DER(privateKey)
         let options: [String: String] = [:]
         var rawItems: CFArray?
         guard SecPKCS12Import(data as CFData, options as CFDictionary, &rawItems) == errSecSuccess else { throw TSTLSConfiguration.Error.invalidData }
