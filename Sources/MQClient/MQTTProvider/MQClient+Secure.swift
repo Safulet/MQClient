@@ -13,11 +13,10 @@ import NIOConcurrencyHelpers
 import Combine
 #endif
 import CryptoSwift
-import SwiftyRSA
+import SwCrypt
 
 enum SecureError: Error {
-    case privateKeyOrPayloadMissing
-    case clientKeysLessThanClientCount
+    case privateKeyMissing
 }
 
 // MARK: -- Secure
@@ -37,25 +36,15 @@ extension MQClient {
         try packSecureMessage(typeId: typeId, sessionId: sessionId, clientIds: clientIds, clientKeys: clientKeys, payload: data)
     }
     
-    func packSecureMessage(typeId: String, sessionId: String, clientIds: [String], clientKeys: [PublicKey], payload: String) throws {
-        if !keyring.hasPrivateKey() || payload.isEmpty {
-            throw SecureError.privateKeyOrPayloadMissing
+    func packSecureMessage(typeId: String, sessionId: String, clientIds: [String], clientKeys: [Data], payload: String) throws -> SecureMessage {
+        if !keyring.hasPrivateKey() {
+            throw SecureError.privateKeyMissing
         }
-        
-        
-        let count = clientIds.count
-        if count != clientKeys.count {
-            throw SecureError.clientKeysLessThanClientCount
-        }
-        
-        try clientKeys.forEach { publicKey in
-            let aesKey = randomData(count: 32)
-            let aesMessage = ClearMessage(data: Data(aesKey))
-            let encKey = try aesMessage.encrypted(with: publicKey, padding: .OAEP)
-            let message = try? ClearMessage(string: payload, using: .utf8)
-            
-        }
-        
+        let secureMessage = try Message.packSecureMessage(ourClientId: clientId, typeId: typeId, sessionId: sessionId, ourKey: keyring.privateKey, toClientIds: [], toKeys: [], payload: payload.data(using: .utf8))
+        return secureMessage
+    }
+    func unpackSecureMessage(sessionId: String, ourKey: Data, senderKey: Data, secureMessage: SecureMessage) throws -> Data {
+        try Message.unpackSecureMessage(ourClientId: clientId, sessionId: sessionId, ourKey: ourKey, senderKey: senderKey, secMsg: secureMessage)
     }
     
     func randomData(count: Int) -> [UInt8] {

@@ -71,15 +71,6 @@
         "revision" : "4e02d9cf35cabfb538c96613272fb027dd0c8692",
         "version" : "1.13.1"
       }
-    },
-    {
-      "identity" : "swiftyrsa",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/songtao046/SwiftyRSA",
-      "state" : {
-        "revision" : "47d7cbc36f4429c5f01efed97c1b45611c587d83",
-        "version" : "1.0.0"
-      }
     }
   ],
   "version" : 2

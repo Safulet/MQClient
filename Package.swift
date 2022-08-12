@@ -15,7 +15,6 @@ let package = Package(
         .package(url: "https://github.com/apple/swift-nio-transport-services.git", from: "1.6.0"),
         .package(url: "https://github.com/songtao046/CryptoSwift", .upToNextMajor(from: "1.0.1")),
         .package(url: "https://github.com/soyersoyer/SwCrypt", .upToNextMajor(from: "5.1.4")),
-        .package(url: "https://github.com/songtao046/SwiftyRSA", from: "1.0.0"),
         
     ],
     targets: [
@@ -27,7 +26,6 @@ let package = Package(
                 .product(name: "CryptoSwift", package: "CryptoSwift"),
                 .product(name: "NIOTransportServices", package: "swift-nio-transport-services"),
                 .product(name: "SwCrypt", package: "SwCrypt"),
-                .product(name: "SwiftyRSA", package: "SwiftyRSA")
             ]
         ),
         .testTarget(

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import SwiftyRSA
+import SwCrypt
 
 enum KeyRingError: Error {
     case publicKeyEmpty
@@ -14,13 +14,13 @@ enum KeyRingError: Error {
 }
 
 public struct KeyRing {
-    var privateKey: PrivateKey?
+    var privateKey: Data?
     var publicKeys: [String: String]
     
     public static var defaultKeyRing = KeyRing(publicKeys: [:])
     
     mutating func savePrivateKeyFromPem(privateKeyPem: String) throws {
-        let privateKey = try PrivateKey(pemEncoded: privateKeyPem)
+        let privateKey = SwKeyConvert.PrivateKey.pemToPKCS1DER(privateKeyPem)
         self.privateKey = privateKey
     }
 
@@ -28,14 +28,14 @@ public struct KeyRing {
         publicKeys[clientId] = publicKeyPem
     }
     
-    func findPublicKey(clientId: String) throws -> PublicKey {
+    func findPublicKey(clientId: String) throws -> Data {
         guard publicKeys.count > 0 else {
             throw KeyRingError.publicKeyEmpty
         }
         guard let publicKeyPem = publicKeys[clientId] else {
             throw KeyRingError.publicKeynotFound
         }
-        return try PublicKey(pemEncoded: publicKeyPem)
+        return try SwKeyConvert.PublicKey.pemToPKCS1DER(publicKeyPem)
     }
     
     func findPublicKeyPem(clientId: String) throws -> String {
@@ -48,14 +48,14 @@ public struct KeyRing {
         return publicKeyPem
     }
     
-    func findPublicKeys(clientIds: [String]) throws -> [PublicKey] {
+    func findPublicKeys(clientIds: [String]) throws -> [Data] {
         let publicKeys = try clientIds.map {
             try findPublicKey(clientId: $0)
         }
         return publicKeys
     }
     
-    func getPrivateKey() -> PrivateKey? {
+    func getPrivateKey() -> Data? {
         privateKey
     }
     
@@ -64,7 +64,8 @@ public struct KeyRing {
     }
     
     func serialize() -> String {
-        "{sk: \((try? privateKey?.pemString()) ?? ""), pks: \(publicKeys) }"
+        
+        "{sk: \((try? SwKeyConvert.PrivateKey.derToPKCS1PEM(privateKey)) ?? ""), pks: \(publicKeys) }"
     }
     
     func length() -> Int {

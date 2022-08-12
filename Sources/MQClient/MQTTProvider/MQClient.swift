@@ -12,7 +12,8 @@ import NIOConcurrencyHelpers
 #if canImport(Combine)
 import Combine
 #endif
-import SwiftyRSA
+import NIOSSL
+import SwCrypt
 
 public class MQClient {
     
@@ -23,7 +24,7 @@ public class MQClient {
     var logger: Logger = Logger(label: "MQTTConnector")
     var decoders = [String: MQTTDecoder]()
     var keyring: KeyRing = .defaultKeyRing
-    
+
     public init(
         endPoint: String,
         port: Int?,
@@ -186,7 +187,7 @@ extension MQClient {
         }
         let dict = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
         let privateKeyPem = (dict?["sk"] as? String) ?? ""
-        let privateKey = try PrivateKey(pemEncoded: privateKeyPem)
+        let privateKey = try SwKeyConvert.PrivateKey.pemToPKCS1DER(privateKeyPem)
         let publicKeys = (dict?["pks"] as? [String: String]) ?? [:]
         keyring = KeyRing(privateKey: privateKey, publicKeys: publicKeys)
     }
